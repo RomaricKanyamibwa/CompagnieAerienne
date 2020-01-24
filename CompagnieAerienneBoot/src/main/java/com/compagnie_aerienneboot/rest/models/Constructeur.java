@@ -1,12 +1,16 @@
 package com.compagnie_aerienneboot.rest.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -26,8 +30,15 @@ public class Constructeur {
 	private Long idConstructeur;
 	@Column(name = "nomConstructeur")
 	private String nomConstructeur;
-	
-	
+
+//	@OneToMany(
+//			mappedBy = "constructeur",
+//			cascade = CascadeType.ALL,
+//			orphanRemoval = true
+//			)
+//	private List<Type> comments = new ArrayList<>();
+
+
 	public Constructeur(Long idConstructeur, String nomConstructeur) {
 		this.idConstructeur = idConstructeur;
 		this.nomConstructeur = nomConstructeur;
@@ -52,10 +63,20 @@ public class Constructeur {
 	public void setNomConstructeur(String nomConstructeur) {
 		this.nomConstructeur = nomConstructeur;
 	}
-	
-	
-	
-	
+
+
+//	public List<Type> getComments() {
+//		return comments;
+//	}
+//
+//
+//	public void setComments(List<Type> comments) {
+//		this.comments = comments;
+//	}
+
+
+
+
 
 
 

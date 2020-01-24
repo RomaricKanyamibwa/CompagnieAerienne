@@ -9,19 +9,21 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Check;
+import org.hibernate.annotations.ColumnDefault;
 @Entity
 @Table(name = "TypeA")
-//@Check(constraints = "COL_A IS NULL OR COL_B IS NOT NULL")    
+@Check(constraints = "capacite >=50 AND capacite<=400")    
 public class Type {
 	
 	@Id
 	@Column(name = "typeAvion",unique=true,columnDefinition="VARCHAR(20)")
 	private String typeAvion;
-	@Column(name = "capacite")
+	@Column(name = "capacite",nullable = false)
+	@ColumnDefault(value = "100")
 	private Short capacite;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idConstructeur")
+	@JoinColumn(name = "idConstructeur",nullable = false)
 	private Constructeur constructeur;
 
 	public Type(String typeAvion, Short capacite) {
