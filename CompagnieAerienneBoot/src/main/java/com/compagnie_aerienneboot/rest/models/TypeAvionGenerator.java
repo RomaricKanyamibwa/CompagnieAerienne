@@ -34,12 +34,12 @@ implements IdentifierGenerator, Configurable{
 				.getIdentifierPropertyName(),
 				obj.getClass().getSimpleName());
 
-		Stream ids = session.createQuery(query).stream();
+//		Stream ids = session.createQuery(query).stream();
 
-		Long max = ids.map(o -> o.replace(prefix + "-", ""))
-				.mapToLong(Long::parseLong)
-				.max()
-				.orElse(0L);
+		Long max =new Long(1L);//= ids.map(o -> o.replace(prefix + "-", ""))
+//				.mapToLong(Long::parseLong)
+//				.max()
+//				.orElse(0L);
 
 		return prefix + "-" + (max + 1);
 
