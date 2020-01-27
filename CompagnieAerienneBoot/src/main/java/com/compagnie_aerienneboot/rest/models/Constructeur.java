@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Table(name="Constructeur")
-public class Constructeur {
+public class Constructeur implements Serializable {
 	@Id
 	@GeneratedValue(
 			strategy= GenerationType.AUTO,
@@ -37,12 +37,17 @@ public class Constructeur {
 //			orphanRemoval = true
 //			)
 //	private List<Type> comments = new ArrayList<>();
-
-
+	
+	
+	
 	public Constructeur(Long idConstructeur, String nomConstructeur) {
 		this.idConstructeur = idConstructeur;
 		this.nomConstructeur = nomConstructeur;
 	}
+
+
+	public Constructeur() {
+}
 
 
 	public Long getIdConstructeur() {

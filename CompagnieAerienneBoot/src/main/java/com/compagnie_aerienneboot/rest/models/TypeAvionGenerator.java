@@ -35,13 +35,13 @@ implements IdentifierGenerator, Configurable{
 				obj.getClass().getSimpleName());
 
 //		Stream ids = session.createQuery(query).stream();
-
-		Long max =new Long(1L);//= ids.map(o -> o.replace(prefix + "-", ""))
+//
+//		Long max = ids.map(o -> o.replace(prefix + "-", ""))
 //				.mapToLong(Long::parseLong)
 //				.max()
 //				.orElse(0L);
 
-		return prefix + "-" + (max + 1);
+		return prefix + "-" + 1;//(max + 1);
 
 	}
 

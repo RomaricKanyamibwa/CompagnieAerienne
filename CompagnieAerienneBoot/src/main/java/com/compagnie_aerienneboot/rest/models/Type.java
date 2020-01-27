@@ -1,5 +1,7 @@
 package com.compagnie_aerienneboot.rest.models;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,18 +15,21 @@ import org.hibernate.annotations.ColumnDefault;
 @Entity
 @Table(name = "TypeA")
 @Check(constraints = "capacite >=50 AND capacite<=400")    
-public class Type {
+public class Type implements Serializable{
 	
 	@Id
 	@Column(name = "typeAvion",unique=true,columnDefinition="VARCHAR(20)")
 	private String typeAvion;
-	@Column(name = "capacite",nullable = false)
+	@Column(name = "capacite")
 	@ColumnDefault(value = "100")
 	private Short capacite;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idConstructeur",nullable = false)
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "idConstructeur")
 	private Constructeur constructeur;
+
+	public Type() {
+	}
 
 	public Type(String typeAvion, Short capacite) {
 		this.typeAvion = typeAvion;
