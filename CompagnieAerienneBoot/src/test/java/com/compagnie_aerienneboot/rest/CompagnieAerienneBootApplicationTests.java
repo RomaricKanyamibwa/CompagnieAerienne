@@ -8,6 +8,9 @@ class CompagnieAerienneBootApplicationTests {
 
 	@Test
 	void contextLoads() {
+		Long l =5L;
+		char c=(char)l.longValue();
+		System.out.println(c);
 	}
 
 }
