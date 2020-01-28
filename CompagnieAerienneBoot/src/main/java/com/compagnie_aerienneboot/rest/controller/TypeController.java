@@ -42,23 +42,21 @@ public class TypeController {
 		return typeDao.getTypes();
 	}
 	
-	@GetMapping("/types/{idSal}")
-	public ResponseEntity findTypeById(@PathVariable(name = "idSal") String idSal) {
+	@GetMapping("/types/{idTyp}")
+	public ResponseEntity findTypeById(@PathVariable(name = "idTyp") String idTyp) {
 		
-		if(idSal== null)
+		if(idTyp== null)
 		{
 			return ResponseEntity.badRequest().body("Cannot retrieve type with null id");
 		} else {
-//			System.err.println("kejrfjerfhebrhfberfrhebfbrhr==>"+idSal+"!!!!");
 			Type user;
 			try {
-				user = typeDao.typeItem(idSal);
+				user = typeDao.typeItem(idTyp);
 			} catch (Exception e) {
 				e.printStackTrace();
-				return ResponseEntity.notFound().build();//("Cannot retrieve type with id="+idSal);
+				return ResponseEntity.notFound().build();
 			}
 			
-//			System.err.println("----hueuger==>"+idSal+"!!!!");
 			if(user==null)
 			{
 				return ResponseEntity.notFound().build();
@@ -74,20 +72,14 @@ public class TypeController {
 	}
 	
 	@DeleteMapping("/types/{id}")
-	public ResponseEntity<Type> deleteType(@PathVariable(value = "id") String idSal) {
-		
-//		if(idSal== null)
-//		{
-//			return ResponseEntity.badRequest().body("Cannot retrieve type with null id");
-//		} else 
-//		{
-			Type user = typeDao.typeItem(idSal);
+	public ResponseEntity<Type> deleteType(@PathVariable(value = "id") String idTyp) {
+
+			Type user = typeDao.typeItem(idTyp);
 			if(user==null)
 			{
 				return ResponseEntity.notFound().build();
 			}
 			typeDao.deleteType(user);
 			return ResponseEntity.ok().body(user);
-//		}
 	}
 }

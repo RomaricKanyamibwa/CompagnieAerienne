@@ -14,7 +14,6 @@ import javax.persistence.Table;
 public class Affectation {
 	
 	
-	// Attributs
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="NumVol")
@@ -27,7 +26,6 @@ public class Affectation {
 	private int IdPilote;
 
 			
-	// Constructeurs
 	public Affectation() {
 		super();
 	}
@@ -38,8 +36,12 @@ public class Affectation {
 		NumAvion = numAvion;
 		IdPilote = idPilote;
 	}
-
 	
+		
+	public Affectation(int numAvion, int idPilote) {
+		NumAvion = numAvion;
+		IdPilote = idPilote;
+	}
 	// Méthodes Get & Set
 	public int getNumVol() {
 		return NumVol;
