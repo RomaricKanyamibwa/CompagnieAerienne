@@ -26,7 +26,7 @@ public class TypeDao {
 		return typeRepository.save(type);
 	}
 	
-	public Type getType(Long id) {
+	public Type getType(String id) {
 		return typeRepository.getOne(id);
 	}
 
@@ -40,7 +40,7 @@ public class TypeDao {
 		
 	}
 
-	public Type typeItem(Long idSal) {
+	public Type typeItem(String idSal) {
 		// TODO Auto-generated method stub
 		return typeRepository.findById(idSal).get();
 	}

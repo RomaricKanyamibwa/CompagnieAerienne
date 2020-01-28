@@ -28,11 +28,11 @@ public class Type implements Serializable{
         name = "typeavion_seq", 
         strategy = "com.compagnie_aerienneboot.rest.models.StringPrefixedSequenceIdGenerator", 
         parameters = {
-            @Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "50"),
+            @Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "10"),
             @Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER,
             value = "A"),
             @Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%03d") })
-	@Column(name = "typeAvion",unique=true,columnDefinition="VARCHAR(20)")
+	@Column(name = "typeAvion",insertable = true,unique=true,columnDefinition="VARCHAR(20)")
 	private String typeAvion;
 	@Column(name = "capacite")
 	@ColumnDefault(value = "100")

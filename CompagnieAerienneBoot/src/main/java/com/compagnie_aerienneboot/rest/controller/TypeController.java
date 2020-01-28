@@ -43,7 +43,7 @@ public class TypeController {
 	}
 	
 	@GetMapping("/types/{idSal}")
-	public ResponseEntity findTypeById(@PathVariable(name = "idSal") Long idSal) {
+	public ResponseEntity findTypeById(@PathVariable(name = "idSal") String idSal) {
 		
 		if(idSal== null)
 		{
@@ -74,7 +74,7 @@ public class TypeController {
 	}
 	
 	@DeleteMapping("/types/{id}")
-	public ResponseEntity<Type> deleteType(@PathVariable(value = "id") Long idSal) {
+	public ResponseEntity<Type> deleteType(@PathVariable(value = "id") String idSal) {
 		
 //		if(idSal== null)
 //		{
