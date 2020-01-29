@@ -35,14 +35,14 @@ public class TypeDao {
 		return typeRepository.saveAndFlush(type);
 	}
 
-	public void deleteType(Type sal) {
-		typeRepository.delete(sal);
+	public void deleteType(Type vol) {
+		typeRepository.delete(vol);
 		
 	}
 
-	public Type typeItem(String idSal) {
+	public Type typeItem(String idVol) {
 		// TODO Auto-generated method stub
-		return typeRepository.findById(idSal).get();
+		return typeRepository.findById(idVol).get();
 	}
 	
 	public List<Type> saveAll(List<Type>types){
