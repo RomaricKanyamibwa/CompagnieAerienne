@@ -14,6 +14,9 @@ import org.hibernate.annotations.Check;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="Vol")
 //@Check(constraints = " CAST(Hdepart AS time) <") 
@@ -46,8 +49,9 @@ public class Vol {
 	@Column(name="HArrivee",columnDefinition="TIME")
 	private String HArrivee;
 	
-//	@OneToOne(mappedBy = "vol",fetch = FetchType.LAZY)
-//	private Affectation affectation;
+	@JsonIgnore()
+	@OneToOne(mappedBy = "vol",fetch = FetchType.LAZY)
+	private Affectation affectation;
 	
 	// Constructeurs
 	public Vol() {
@@ -89,7 +93,7 @@ public class Vol {
 		AeroportArr = aeroportArr;
 		Hdepart = hdepart;
 		HArrivee = hArrivee;
-//		this.affectation = affectation;
+		this.affectation = affectation;
 	}
 
 
@@ -128,13 +132,13 @@ public class Vol {
 
 
 
-//	public Affectation getAffectation() {
-//		return affectation;
-//	}
-//
-//
-//
-//	public void setAffectation(Affectation affectation) {
-//		this.affectation = affectation;
-//	}
+	public Affectation getAffectation() {
+		return affectation;
+	}
+
+
+
+	public void setAffectation(Affectation affectation) {
+		this.affectation = affectation;
+	}
 }
