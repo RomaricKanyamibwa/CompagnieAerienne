@@ -28,18 +28,18 @@ public class AvionDao
 		return genRepository.findAll();
 	}
 	
-	public Avion saveAvion(Avion type)
+	public Avion saveAvion(Avion avion)
 	{
-		return genRepository.save(type);
+		return genRepository.save(avion);
 	}
 	
 	public Avion getAvion(Long id) {
 		return genRepository.getOne(id);
 	}
 
-	public Avion updateAvion(@Valid Avion type) {
+	public Avion updateAvion(@Valid Avion avion) {
 		// TODO Auto-generated method stub
-		return genRepository.saveAndFlush(type);
+		return genRepository.saveAndFlush(avion);
 	}
 
 	public void deleteAvion(Avion elem) {
@@ -52,8 +52,8 @@ public class AvionDao
 		return genRepository.findById(idAvion).get();
 	}
 	
-	public List<Avion> saveAll(List<Avion>types){
-		return genRepository.saveAll(types);
+	public List<Avion> saveAll(List<Avion>avions){
+		return genRepository.saveAll(avions);
 	}
 	
 }

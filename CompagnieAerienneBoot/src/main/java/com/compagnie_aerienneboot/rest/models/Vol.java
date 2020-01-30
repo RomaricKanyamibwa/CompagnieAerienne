@@ -22,9 +22,9 @@ public class Vol {
 	
 	// Attributs
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "typevol_seq")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "numvol_seq")
     @GenericGenerator(
-        name = "typevol_seq", 
+        name = "numvol_seq", 
         strategy = "com.compagnie_aerienneboot.rest.models.StringPrefixedSequenceIdGenerator", 
         parameters = {
             @Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "1"),
@@ -46,9 +46,8 @@ public class Vol {
 	@Column(name="HArrivee",columnDefinition="TIME")
 	private String HArrivee;
 	
-	@OneToOne(mappedBy = "vol",cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
-	private Affectation affectation;
+//	@OneToOne(mappedBy = "vol",fetch = FetchType.LAZY)
+//	private Affectation affectation;
 	
 	// Constructeurs
 	public Vol() {
@@ -90,7 +89,7 @@ public class Vol {
 		AeroportArr = aeroportArr;
 		Hdepart = hdepart;
 		HArrivee = hArrivee;
-		this.affectation = affectation;
+//		this.affectation = affectation;
 	}
 
 
@@ -129,13 +128,13 @@ public class Vol {
 
 
 
-	public Affectation getAffectation() {
-		return affectation;
-	}
-
-
-
-	public void setAffectation(Affectation affectation) {
-		this.affectation = affectation;
-	}
+//	public Affectation getAffectation() {
+//		return affectation;
+//	}
+//
+//
+//
+//	public void setAffectation(Affectation affectation) {
+//		this.affectation = affectation;
+//	}
 }

@@ -20,7 +20,7 @@ public class Pilote {
 	@Column(name="IdPilote")
 	private Integer IdPilote;
 	@Column(name="NomPilote",columnDefinition="VARCHAR(50)",nullable = false)
-	private String NomPilote;
+	private String NomPilote; 
 	@Column(name="PrenomPilote",columnDefinition="VARCHAR(30)",nullable = false)
 	private String PrenomPilote;
 	

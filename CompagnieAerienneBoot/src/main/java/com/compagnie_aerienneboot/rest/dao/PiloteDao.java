@@ -35,14 +35,14 @@ public class PiloteDao {
 		return piloteRepository.saveAndFlush(pilote);
 	}
 
-	public void deletePilote(Pilote sal) {
-		piloteRepository.delete(sal);
+	public void deletePilote(Pilote pil) {
+		piloteRepository.delete(pil);
 		
 	}
 
-	public Pilote piloteItem(Integer idSal) {
+	public Pilote piloteItem(Integer idPil) {
 		// TODO Auto-generated method stub
-		return piloteRepository.findById(idSal).get();
+		return piloteRepository.findById(idPil).get();
 	}
 	
 	public List<Pilote> saveAll(List<Pilote>pilotes){

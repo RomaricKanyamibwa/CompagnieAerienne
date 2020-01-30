@@ -22,16 +22,17 @@ public class Affectation {
 	
 	
 	@AttributeOverrides({
-	      @AttributeOverride(name="NumVol", column = @Column(name="Num_Vol")),
-	      @AttributeOverride(name="DateVol", column = @Column(name="Date_Vol"))
+	      @AttributeOverride(name="NumVol", 
+	    		  column = @Column(name="NumVol",length = 5,columnDefinition="VARCHAR(5)")),
+	      @AttributeOverride(name="DateVol", column = @Column(name="DateVol",columnDefinition="datetime"))
 	    })
     @EmbeddedId
 	private PK_KeyAffectation pkAffectation;
 	
-	@MapsId("NumVol")
-	@OneToOne(fetch = FetchType.EAGER,cascade = {CascadeType.PERSIST})
-	@JoinColumn(name = "NumVol",unique = true)
-    private Vol vol;
+//	@MapsId("NumVol")
+//	@OneToOne(fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST})
+//	@JoinColumn(name = "NumVol",unique = true,columnDefinition = "VARCHAR(5)")
+//    private Vol vol;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "NumAvion")
@@ -47,12 +48,12 @@ public class Affectation {
 
 	public Affectation(PK_KeyAffectation pkAffectation, Vol vol, Pilote pilote) {
 		this.pkAffectation = pkAffectation;
-		this.vol = vol;
+//		this.vol = vol;
 		this.pilote = pilote;
 	}
 
 	public Affectation(Vol vol, Pilote pilote) {
-		this.vol = vol;
+		//this.vol = vol;
 		this.pilote = pilote;
 	}
 
@@ -64,13 +65,13 @@ public class Affectation {
 		this.pkAffectation = pkAffectation;
 	}
 
-	public Vol getVol() {
-		return vol;
-	}
-
-	public void setVol(Vol vol) {
-		this.vol = vol;
-	}
+//	public Vol getVol() {
+//		return vol;
+//	}
+//
+//	public void setVol(Vol vol) {
+//		this.vol = vol;
+//	}
 
 	public Pilote getPilote() {
 		return pilote;

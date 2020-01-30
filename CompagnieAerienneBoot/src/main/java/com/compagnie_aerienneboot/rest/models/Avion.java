@@ -23,7 +23,7 @@ public class Avion {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "typeAvion",nullable = false)
 	private Type typeAvion;
-	@Column(name = "baseAeroport")
+	@Column(name = "baseAeroport",length = 3,columnDefinition = "VARCHAR(3)")
 	private String baseAeroport;
 	
 	public Avion() {

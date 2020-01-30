@@ -35,14 +35,14 @@ public class ConstructeurDao {
 		return constructeurRepository.saveAndFlush(constructeur);
 	}
 
-	public void deleteConstructeur(Constructeur sal) {
-		constructeurRepository.delete(sal);
+	public void deleteConstructeur(Constructeur con) {
+		constructeurRepository.delete(con);
 		
 	}
 
-	public Constructeur constructeurItem(Long idSal) {
+	public Constructeur constructeurItem(Long idCon) {
 		// TODO Auto-generated method stub
-		return constructeurRepository.findById(idSal).get();
+		return constructeurRepository.findById(idCon).get();
 	}
 	
 	public List<Constructeur> saveAll(List<Constructeur>constructeurs){

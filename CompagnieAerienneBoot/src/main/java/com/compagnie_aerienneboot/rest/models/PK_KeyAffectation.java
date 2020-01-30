@@ -1,7 +1,6 @@
 package com.compagnie_aerienneboot.rest.models;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -10,15 +9,14 @@ import javax.persistence.Embeddable;
 public class PK_KeyAffectation implements Serializable {
 	
 	private String NumVol;
-	@Column(columnDefinition="datetime")
-	private Date DateVol;
+	private String DateVol;
 	
 	
 	public PK_KeyAffectation() {
 	}
 
 
-	public PK_KeyAffectation(String numVol, Date dateVol) {
+	public PK_KeyAffectation(String numVol, String dateVol) {
 		NumVol = numVol;
 		DateVol = dateVol;
 	}
@@ -34,12 +32,12 @@ public class PK_KeyAffectation implements Serializable {
 	}
 
 
-	public Date getDateVol() {
+	public String getDateVol() {
 		return DateVol;
 	}
 
 
-	public void setDateVol(Date dateVol) {
+	public void setDateVol(String dateVol) {
 		DateVol = dateVol;
 	}
 
