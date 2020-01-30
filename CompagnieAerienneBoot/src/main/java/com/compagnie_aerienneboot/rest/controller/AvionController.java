@@ -48,7 +48,6 @@ public class AvionController {
 		{
 			return ResponseEntity.badRequest().body("Cannot retrieve avion with null id");
 		} else {
-//			System.err.println("kejrfjerfhebrhfberfrhebfbrhr==>"+idAvion+"!!!!");
 			Avion user;
 			try {
 				user = avionDao.getItem(idAvion);
@@ -57,7 +56,6 @@ public class AvionController {
 				return ResponseEntity.notFound().build();//("Cannot retrieve avion with id="+idAvion);
 			}
 			
-//			System.err.println("----hueuger==>"+idAvion+"!!!!");
 			if(user==null)
 			{
 				return ResponseEntity.notFound().build();

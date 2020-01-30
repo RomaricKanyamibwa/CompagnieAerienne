@@ -41,23 +41,21 @@ public class ConstructeurController {
 		return constructeurDao.getConstructeurs();
 	}
 	
-	@GetMapping("/constructeurs/{idSal}")
-	public ResponseEntity findConstructeurById(@PathVariable(name = "idSal") Long idSal) {
+	@GetMapping("/constructeurs/{idCon}")
+	public ResponseEntity findConstructeurById(@PathVariable(name = "idCon") Long idCon) {
 		
-		if(idSal== null)
+		if(idCon== null)
 		{
 			return ResponseEntity.badRequest().body("Cannot retrieve constructeur with null id");
 		} else {
-//			System.err.println("kejrfjerfhebrhfberfrhebfbrhr==>"+idSal+"!!!!");
 			Constructeur user;
 			try {
-				user = constructeurDao.constructeurItem(idSal);
+				user = constructeurDao.constructeurItem(idCon);
 			} catch (Exception e) {
 				e.printStackTrace();
-				return ResponseEntity.notFound().build();//("Cannot retrieve constructeur with id="+idSal);
+				return ResponseEntity.notFound().build();//("Cannot retrieve constructeur with id="+idCon);
 			}
 			
-//			System.err.println("----hueuger==>"+idSal+"!!!!");
 			if(user==null)
 			{
 				return ResponseEntity.notFound().build();
@@ -73,20 +71,14 @@ public class ConstructeurController {
 	}
 	
 	@DeleteMapping("/constructeurs/{id}")
-	public ResponseEntity<Constructeur> deleteConstructeur(@PathVariable(value = "id") Long idSal) {
+	public ResponseEntity<Constructeur> deleteConstructeur(@PathVariable(value = "id") Long idCon) {
 		
-//		if(idSal== null)
-//		{
-//			return ResponseEntity.badRequest().body("Cannot retrieve constructeur with null id");
-//		} else 
-//		{
-			Constructeur user = constructeurDao.constructeurItem(idSal);
+			Constructeur user = constructeurDao.constructeurItem(idCon);
 			if(user==null)
 			{
 				return ResponseEntity.notFound().build();
 			}
 			constructeurDao.deleteConstructeur(user);
 			return ResponseEntity.ok().body(user);
-//		}
 	}
 }

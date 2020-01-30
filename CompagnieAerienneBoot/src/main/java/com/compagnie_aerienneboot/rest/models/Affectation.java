@@ -2,67 +2,88 @@ package com.compagnie_aerienneboot.rest.models;
 
 import java.util.Date;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.FetchType;
+
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="Affectation")
 public class Affectation {
 	
 	
-	// Attributs
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="NumVol")
-	private int NumVol;
-	@Column(name="DateVol")
-	private Date DateVol;
-	@Column(name="NumAvion")
-	private int NumAvion;
-	@Column(name="IdPilote")
-	private int IdPilote;
+	@AttributeOverrides({
+	      @AttributeOverride(name="NumVol", 
+	    		  column = @Column(name="NumVol",length = 5,columnDefinition="VARCHAR(5)")),
+	      @AttributeOverride(name="DateVol", column = @Column(name="DateVol",columnDefinition="datetime"))
+	    })
+    @EmbeddedId
+	private PK_KeyAffectation pkAffectation;
+	
+	@JsonIgnore
+	@MapsId("NumVol")
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "NumVol",unique = true,columnDefinition = "VARCHAR(5)")
+    private Vol vol;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "NumAvion")
+	private Avion avion;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "idPilote")
+	private Pilote pilote;
 
-			
-	// Constructeurs
 	public Affectation() {
 		super();
 	}
-	public Affectation(int numVol, Date dateVol, int numAvion, int idPilote) {
-		super();
-		NumVol = numVol;
-		DateVol = dateVol;
-		NumAvion = numAvion;
-		IdPilote = idPilote;
+
+	public Affectation(PK_KeyAffectation pkAffectation, Vol vol, Pilote pilote) {
+		this.pkAffectation = pkAffectation;
+		this.vol = vol;
+		this.pilote = pilote;
 	}
 
+	public Affectation(Vol vol, Pilote pilote) {
+		this.vol = vol;
+		this.pilote = pilote;
+	}
+
+	public PK_KeyAffectation getPkAffectation() {
+		return pkAffectation;
+	}
+
+	public void setPkAffectation(PK_KeyAffectation pkAffectation) {
+		this.pkAffectation = pkAffectation;
+	}
+
+	public Vol getVol() {
+		return vol;
+	}
+
+	public void setVol(Vol vol) {
+		this.vol = vol;
+	}
+
+	public Pilote getPilote() {
+		return pilote;
+	}
+
+	public void setPilote(Pilote pilote) {
+		this.pilote = pilote;
+	}
 	
-	// Méthodes Get & Set
-	public int getNumVol() {
-		return NumVol;
-	}
-	public void setNumVol(int numVol) {
-		NumVol = numVol;
-	}
-	public Date getDateVol() {
-		return DateVol;
-	}
-	public void setDateVol(Date dateVol) {
-		DateVol = dateVol;
-	}
-	public int getNumAvion() {
-		return NumAvion;
-	}
-	public void setNumAvion(int numAvion) {
-		NumAvion = numAvion;
-	}
-	public int getIdPilote() {
-		return IdPilote;
-	}
-	public void setIdPilote(int idPilote) {
-		IdPilote = idPilote;
-	}
+	
 }
