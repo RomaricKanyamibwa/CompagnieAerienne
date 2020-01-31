@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.compagnie_aerienneboot.rest.dao.AffectationDao;
+import com.compagnie_aerienneboot.rest.dao.VolDao;
 import com.compagnie_aerienneboot.rest.models.Affectation;
 import com.compagnie_aerienneboot.rest.models.PK_KeyAffectation;
+import com.compagnie_aerienneboot.rest.models.Vol;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -30,9 +32,20 @@ public class AffectationController {
 	@Autowired
 	AffectationDao affectationDao; 
 	
+	@Autowired
+	VolDao volDao;
+	
 	@PostMapping("/affectations")
 	public Affectation createAffectation(@Valid @RequestBody Affectation affectation)
 	{
+		String s=affectation.getPkAffectation().getNumVol();
+		Vol vol=volDao.getVol(s);
+		if(vol==null)
+		{
+			vol = new Vol();
+			vol.setNumVol(s);
+		}
+		affectation.setVol(vol);
 		return affectationDao.saveAffectation(affectation);
 	}
 	

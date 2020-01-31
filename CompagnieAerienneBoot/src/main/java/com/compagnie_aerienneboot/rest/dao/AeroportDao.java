@@ -18,13 +18,13 @@ public class AeroportDao {
 		return aeroportrepository.findAll();
 	}
 	public Aeroport saveAeoroport (Aeroport airport) {
-		return Aeroport.save(airport);
+		return aeroportrepository.save(airport);
 	}
 	public Aeroport updateAeoroport (Aeroport airport) {
-		return Aeroport.update(airport);
+		return aeroportrepository.save(airport);
 	}
 	public void deleteAeroport(Aeroport airport) {
-		Aeroport.delete(airport);
+		aeroportrepository.delete(airport);
 	}
 	public Aeroport getAeroport(String idAeroport) {
 		return aeroportrepository.getOne(idAeroport);

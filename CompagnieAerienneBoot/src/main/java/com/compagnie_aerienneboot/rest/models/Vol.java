@@ -50,7 +50,7 @@ public class Vol {
 	private String HArrivee;
 	
 	@JsonIgnore()
-	@OneToOne(mappedBy = "vol",fetch = FetchType.LAZY)
+	@OneToOne(mappedBy = "vol",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private Affectation affectation;
 	
 	// Constructeurs

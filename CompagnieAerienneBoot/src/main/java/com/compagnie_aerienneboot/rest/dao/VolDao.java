@@ -37,7 +37,6 @@ public class VolDao {
 
 	public void deleteVol(Vol vol) {
 		volRepository.delete(vol);
-		
 	}
 
 	public Vol volItem(String idVol) {
