@@ -49,9 +49,9 @@ public class Vol {
 	@Column(name="HArrivee",columnDefinition="TIME")
 	private String HArrivee;
 	
-	@JsonIgnore()
-	@OneToOne(mappedBy = "vol",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private Affectation affectation;
+//	@JsonIgnore()
+//	@OneToOne(mappedBy = "vol",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//	private Affectation affectation;
 	
 	// Constructeurs
 	public Vol() {
@@ -86,15 +86,15 @@ public class Vol {
 	}
 
 		
-	public Vol(String numVol, String aeroportDept, String aeroportArr, String hdepart, String hArrivee,
-			Affectation affectation) {
-		NumVol = numVol;
-		AeroportDept = aeroportDept;
-		AeroportArr = aeroportArr;
-		Hdepart = hdepart;
-		HArrivee = hArrivee;
-		this.affectation = affectation;
-	}
+//	public Vol(String numVol, String aeroportDept, String aeroportArr, String hdepart, String hArrivee,
+//			Affectation affectation) {
+//		NumVol = numVol;
+//		AeroportDept = aeroportDept;
+//		AeroportArr = aeroportArr;
+//		Hdepart = hdepart;
+//		HArrivee = hArrivee;
+//		this.affectation = affectation;
+//	}
 
 
 
@@ -132,13 +132,13 @@ public class Vol {
 
 
 
-	public Affectation getAffectation() {
-		return affectation;
-	}
-
-
-
-	public void setAffectation(Affectation affectation) {
-		this.affectation = affectation;
-	}
+//	public Affectation getAffectation() {
+//		return affectation;
+//	}
+//
+//
+//
+//	public void setAffectation(Affectation affectation) {
+//		this.affectation = affectation;
+//	}
 }

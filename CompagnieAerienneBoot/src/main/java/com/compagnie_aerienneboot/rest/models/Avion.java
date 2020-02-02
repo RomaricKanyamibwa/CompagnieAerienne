@@ -23,8 +23,10 @@ public class Avion {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "typeAvion",nullable = false)
 	private Type typeAvion;
-	@Column(name = "baseAeroport",length = 3,columnDefinition = "VARCHAR(3)")
-	private String baseAeroport;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "IdAeroport",nullable = false)
+	private Aeroport baseAeroport;
 	
 	public Avion() {
 	}
@@ -33,12 +35,12 @@ public class Avion {
 		NumAvion = numAvion;
 	}
 
-	public Avion(Type typeAvion, String baseAeroport) {
+	public Avion(Type typeAvion, Aeroport baseAeroport) {
 		this.typeAvion = typeAvion;
 		this.baseAeroport = baseAeroport;
 	}
 
-	public Avion(Long numAvion, Type typeAvion, String baseAeroport) {
+	public Avion(Long numAvion, Type typeAvion, Aeroport baseAeroport) {
 		NumAvion = numAvion;
 		this.typeAvion = typeAvion;
 		this.baseAeroport = baseAeroport;
@@ -60,11 +62,11 @@ public class Avion {
 		this.typeAvion = typeAvion;
 	}
 
-	public String getBaseAeroport() {
+	public Aeroport getBaseAeroport() {
 		return baseAeroport;
 	}
 
-	public void setBaseAeroport(String baseAeroport) {
+	public void setBaseAeroport(Aeroport baseAeroport) {
 		this.baseAeroport = baseAeroport;
 	}
 	

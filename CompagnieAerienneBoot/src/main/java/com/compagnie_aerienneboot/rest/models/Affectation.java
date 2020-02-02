@@ -26,15 +26,17 @@ public class Affectation {
 	@AttributeOverrides({
 	      @AttributeOverride(name="NumVol", 
 	    		  column = @Column(name="NumVol",length = 5,columnDefinition="VARCHAR(5)")),
-	      @AttributeOverride(name="DateVol", column = @Column(name="DateVol",columnDefinition="datetime"))
+	      @AttributeOverride(name="DateVol", column = @Column(name="DateVol",columnDefinition="date"))
 	    })
     @EmbeddedId
 	private PK_KeyAffectation pkAffectation;
 	
-	@JsonIgnore
+//	@JsonIgnore
 	@MapsId("NumVol")
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "NumVol",unique = true,columnDefinition = "VARCHAR(5)")
+//	@OneToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "NumVol",unique = true,columnDefinition = "VARCHAR(5)")
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "NumVol")
     private Vol vol;
 	
 	@ManyToOne(fetch = FetchType.EAGER)

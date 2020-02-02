@@ -14,10 +14,10 @@ public class Aeroport {
 	
 	// Attributs
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="IdAeroport")
-	private int IdAeroport;
-	@Column(name="NomAeroport")
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="IdAeroport",columnDefinition = "VARCHAR(3)",length = 3)
+	private String IdAeroport;
+	@Column(name="NomAeroport",nullable = false)
 	private String NomAeroport;
 	@Column(name="NomVilleDesservie")
 	private String NomVilleDesservie;
@@ -27,7 +27,7 @@ public class Aeroport {
 	public Aeroport() {
 		super();
 	}
-	public Aeroport(int idAeroport, String nomAeroport, String nomVilleDesservie) {
+	public Aeroport(String idAeroport, String nomAeroport, String nomVilleDesservie) {
 		super();
 		IdAeroport = idAeroport;
 		NomAeroport = nomAeroport;
@@ -36,10 +36,10 @@ public class Aeroport {
 	
 	
 	// Méthodes Get & Set
-	public int getIdAeroport() {
+	public String getIdAeroport() {
 		return IdAeroport;
 	}
-	public void setIdAeroport(int idAeroport) {
+	public void setIdAeroport(String idAeroport) {
 		IdAeroport = idAeroport;
 	}
 	public String getNomAeroport() {
