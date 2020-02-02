@@ -7,19 +7,17 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Check;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="Vol")
-//@Check(constraints = " CAST(Hdepart AS time) <") 
 public class Vol {
 	
 	
@@ -37,11 +35,13 @@ public class Vol {
 	@Column(name = "NumVol",insertable = true,columnDefinition="VARCHAR(5)")
 	private String NumVol;
 	
-	@Column(name="AeroportDept",columnDefinition="VARCHAR(3)")
-	private String AeroportDept;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "AeroportDept")
+	private Aeroport AeroportDept;
 	
-	@Column(name="AeroportArr",columnDefinition="VARCHAR(3)")
-	private String AeroportArr;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "AeroportArr")
+	private Aeroport AeroportArr;
 	
 	@Column(name="Hdepart",columnDefinition="TIME")
 	private String Hdepart;
@@ -60,14 +60,14 @@ public class Vol {
 	
 	
 	
-	public Vol(String aeroportDept, String aeroportArr) {
+	public Vol(Aeroport aeroportDept, Aeroport aeroportArr) {
 		AeroportDept = aeroportDept;
 		AeroportArr = aeroportArr;
 	}
 
 
 
-	public Vol(String aeroportDept, String aeroportArr, String hdepart, String hArrivee) {
+	public Vol(Aeroport aeroportDept, Aeroport aeroportArr, String hdepart, String hArrivee) {
 		AeroportDept = aeroportDept;
 		AeroportArr = aeroportArr;
 		Hdepart = hdepart;
@@ -76,7 +76,7 @@ public class Vol {
 
 
 
-	public Vol(String numVol, String aeroportDept, String aeroportArr, String hdepart, String hArrivee) {
+	public Vol(String numVol, Aeroport aeroportDept, Aeroport aeroportArr, String hdepart, String hArrivee) {
 		super();
 		NumVol = numVol;
 		AeroportDept = aeroportDept;
@@ -105,16 +105,16 @@ public class Vol {
 	public void setNumVol(String numVol) {
 		NumVol = numVol;
 	}
-	public String getAeroportDept() {
+	public Aeroport getAeroportDept() {
 		return AeroportDept;
 	}
-	public void setAeroportDept(String aeroportDept) {
+	public void setAeroportDept(Aeroport aeroportDept) {
 		AeroportDept = aeroportDept;
 	}
-	public String getAeroportArr() {
+	public Aeroport getAeroportArr() {
 		return AeroportArr;
 	}
-	public void setAeroportArr(String aeroportArr) {
+	public void setAeroportArr(Aeroport aeroportArr) {
 		AeroportArr = aeroportArr;
 	}
 	public String getHdepart() {

@@ -19,7 +19,7 @@ public class Aeroport {
 	private String IdAeroport;
 	@Column(name="NomAeroport",nullable = false)
 	private String NomAeroport;
-	@Column(name="NomVilleDesservie")
+	@Column(name="NomVilleDesservie",columnDefinition = "VARCHAR(50)")
 	private String NomVilleDesservie;
 	
 			

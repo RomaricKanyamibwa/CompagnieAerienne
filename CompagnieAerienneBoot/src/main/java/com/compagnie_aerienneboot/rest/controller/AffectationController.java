@@ -19,7 +19,6 @@ import com.compagnie_aerienneboot.rest.dao.AffectationDao;
 import com.compagnie_aerienneboot.rest.dao.VolDao;
 import com.compagnie_aerienneboot.rest.models.Affectation;
 import com.compagnie_aerienneboot.rest.models.PK_KeyAffectation;
-import com.compagnie_aerienneboot.rest.models.Vol;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -38,14 +37,14 @@ public class AffectationController {
 	@PostMapping("/affectations")
 	public Affectation createAffectation(@Valid @RequestBody Affectation affectation)
 	{
-		String s=affectation.getPkAffectation().getNumVol();
-		Vol vol=volDao.getVol(s);
-		if(vol==null)
-		{
-			vol = new Vol();
-			vol.setNumVol(s);
-		}
-		affectation.setVol(vol);
+//		String s=affectation.getPkAffectation().getNumVol();
+//		Vol vol=volDao.getVol(s);
+//		if(vol==null)
+//		{
+//			vol = new Vol();
+//			vol.setNumVol(s);
+//		}
+//		affectation.setVol(vol);
 		return affectationDao.saveAffectation(affectation);
 	}
 	
@@ -55,16 +54,19 @@ public class AffectationController {
 		return affectationDao.getAffectations();
 	}
 	
-	@GetMapping("/affectations/{idTyp}")
-	public ResponseEntity findAffectationById(@PathVariable(name = "idTyp") PK_KeyAffectation idTyp) {
+	@GetMapping("/affectations/{numVol}/{dateVol}/")
+	public ResponseEntity findAffectationById(@PathVariable(name = "numVol") String numVol,
+			@PathVariable(name = "dateVol") String dateVol) {
 		
-		if(idTyp== null)
+		PK_KeyAffectation idAff = new PK_KeyAffectation(numVol, dateVol);
+		
+		if(idAff== null)
 		{
 			return ResponseEntity.badRequest().body("Cannot retrieve affectation with null id");
 		} else {
 			Affectation user;
 			try {
-				user = affectationDao.affItem(idTyp);
+				user = affectationDao.affItem(idAff);
 			} catch (Exception e) {
 				e.printStackTrace();
 				return ResponseEntity.notFound().build();

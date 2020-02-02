@@ -6,17 +6,22 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.compagnie_aerienneboot.rest.dao.AeroportDao;
 import com.compagnie_aerienneboot.rest.models.Aeroport;
 import com.compagnie_aerienneboot.rest.models.Type;
 
-
+@RestController
+@RequestMapping
+@CrossOrigin("*")
 public class AeroportController {
 
 	@Autowired
@@ -25,7 +30,7 @@ public class AeroportController {
 	@GetMapping("/aeroports")
 	public List<Aeroport> getAllAeroports() 
 	{
-		return aeroportDao.getAeroport();
+		return aeroportDao.getAeroports();
 	}
 	
 	@PostMapping("/aeroports")
@@ -40,7 +45,7 @@ public class AeroportController {
 		return aeroportDao.updateAeoroport(airport);
 	}
 	
-	@GetMapping("/types/{IdAeroport}")
+	@GetMapping("/aeroports/{IdAeroport}")
 	public ResponseEntity findTypeById(@PathVariable(name = "IdAeroport") String IdAeroport) {
 		
 		if(IdAeroport== null)
@@ -50,7 +55,7 @@ public class AeroportController {
 
 			Aeroport user;
 			try {
-				user = aeroportDao.AeroportItem(IdAeroport);
+				user = aeroportDao.aeroportItem(IdAeroport);
 			} catch (Exception e) {
 				e.printStackTrace();
 				return ResponseEntity.notFound().build();//("Cannot retrieve type with id="+idSal);
