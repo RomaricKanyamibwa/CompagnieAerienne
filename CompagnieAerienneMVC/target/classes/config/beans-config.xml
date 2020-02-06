@@ -3,33 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="salarieDao" class="com.stock.mvc.dao.impl.SalarieDaoImpl"/>
-       <bean id="salarieService" class="com.stock.mvc.services.impl.SalarieServiceImpl">
+	<bean id="salarieDao" class="companie.aerienne.mvc.dao.impl.SalarieDaoImpl"/>
+       <bean id="salarieService" class="companie.aerienne.mvc.services.impl.SalarieServiceImpl">
         <property name="dao" ref="salarieDao" />
-    </bean>
-    <bean id="employeurDao" class="com.stock.mvc.dao.impl.EmployeurDaoImpl"/>
-       <bean id="employeurService" class="com.stock.mvc.services.impl.EmployeurServiceImpl">
-        <property name="dao" ref="employeurDao" />
-    </bean>
-    <bean id="impotsDao" class="com.stock.mvc.dao.impl.ImpotsDaoImpl"/>
-       <bean id="impotsService" class="com.stock.mvc.services.impl.ImpotsServiceImpl">
-        <property name="dao" ref="impotsDao" />
-    </bean>
-    <bean id="remunerationBruteDao" class="com.stock.mvc.dao.impl.RemunerationBruteDaoImpl"/>
-       <bean id="remunerationBruteService" class="com.stock.mvc.services.impl.RemunerationBruteServiceImpl">
-        <property name="dao" ref="remunerationBruteDao" />
-    </bean>
-    <bean id="retraiteDao" class="com.stock.mvc.dao.impl.RetraiteDaoImpl"/>
-       <bean id="retraiteService" class="com.stock.mvc.services.impl.RetraiteServiceImpl">
-        <property name="dao" ref="retraiteDao" />
-    </bean>
-    <bean id="salaireDao" class="com.stock.mvc.dao.impl.SalaireDaoImpl"/>
-       <bean id="salaireService" class="com.stock.mvc.services.impl.SalaireServiceImpl">
-        <property name="dao" ref="salaireDao" />
-    </bean>
-     <bean id="santeDao" class="com.stock.mvc.dao.impl.SanteDaoImpl"/>
-       <bean id="santeService" class="com.stock.mvc.services.impl.SanteServiceImpl">
-        <property name="dao" ref="santeDao" />
     </bean>
 
 </beans>
