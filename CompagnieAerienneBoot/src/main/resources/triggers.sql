@@ -24,3 +24,9 @@ BEGIN
 	END IF ; 
 END^; 
 
+/*
+DROP TRIGGER IF EXISTS^;
+CREATE TRIGGER `HVol` BEFORE INSERT ON `affectation`
+ FOR EACH ROW BEGIN
+	SET New.date_vol=concat(date(NEW.date_vol),' ',(SELECT harrivee FROM vol WHERE num_vol=New.num_vol));
+END^;*/
