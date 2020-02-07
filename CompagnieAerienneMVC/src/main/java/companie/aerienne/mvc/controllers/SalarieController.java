@@ -31,6 +31,7 @@ public class SalarieController {
 			salaries=new ArrayList<Salarie>();
 		}
 		model.addAttribute("salaries",salaries);
+		model.addAttribute("title","Compagnie Aerienne - Salarie");
 		return "salarie/salarie";
 	}
 	
@@ -38,6 +39,7 @@ public class SalarieController {
 	public String ajouterSalarie(Model model) {
 		Salarie salarie = new Salarie();		
 		model.addAttribute("salarie",salarie);
+		model.addAttribute("title","Compagnie Aerienne - Salarie");
 		return "salarie/ajouterSalarie";
 	}
 	
@@ -57,7 +59,9 @@ public class SalarieController {
 		  if(id != null) {
 			  Salarie salarie = salarieservice.getById(id);
 			  if(salarie != null)
-			  { model.addAttribute("salarie",salarie);
+			  { 
+				  model.addAttribute("salarie",salarie);
+				  model.addAttribute("title","Compagnie Aerienne - Salarie");
 			  }
 		  }
 	  

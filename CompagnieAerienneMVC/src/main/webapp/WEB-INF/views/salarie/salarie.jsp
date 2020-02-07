@@ -9,9 +9,10 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
-<meta name="author" content="">
+<meta name="author" content="Yes">
+<link rel="icon" href="<%=request.getContextPath()%>/resources/img/logo2.png">
 
-<title>Calev Devise Paie - Blank</title>
+<title>${title}</title>
 
 <!-- Custom fonts for this template-->
 <link
@@ -20,6 +21,9 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<%-- <link href="<%=request.getContextPath() %>/resources/mdb/css/bootstrap.min.css" rel="stylesheet"> --%>
+<%-- <link href="<%=request.getContextPath() %>/resources/mdb/css/mdb.min.css" rel="stylesheet"> --%>
 
 <!-- Custom styles for this template-->
 <link
@@ -31,7 +35,7 @@
 <body id="page-top">
 
 	<!-- Page Wrapper -->
-<div id="wrapper">
+<div id="wrapper" >
 
 	<!-- Navigation -->
 <%@include file="/WEB-INF/views/menu_left/leftMenu.jsp"%>
@@ -110,8 +114,8 @@
 	<div class="col-lg-12">
 	<ol class="breadcrumb">
 	<li><a href="<c:url value="/salarie/nouveau/" />"><i class="fas fa-plus">&nbsp;<fmt:message key="common.ajouter" />&nbsp; &nbsp; &nbsp;</i></a></li>
-	<li><a href="#"/><i class="fas fa-upload">&nbsp;<fmt:message key="common.exporter" />&nbsp; &nbsp; &nbsp;</i></li>
-	<li><a href="#"/><i class="fas fa-download">&nbsp;<fmt:message key="common.importer" />&nbsp; &nbsp; &nbsp;</i></li>
+<%-- 	<li><a href="#"/><i class="fas fa-upload">&nbsp;<fmt:message key="common.exporter" />&nbsp; &nbsp; &nbsp;</i></li> --%>
+<%-- 	<li><a href="#"/><i class="fas fa-download">&nbsp;<fmt:message key="common.importer" />&nbsp; &nbsp; &nbsp;</i></li> --%>
 	</ol>
 	</div>
 	</div>
@@ -257,7 +261,7 @@
 			<div class="modal-footer">
 				<button class="btn btn-secondary" type="button"
 					data-dismiss="modal">Cancel</button>
-				<a class="btn btn-primary"
+				<a class="btn btn-success"
 					href="<%=request.getContextPath()%>/resources/login.html">Logout</a>
 			</div>
 		</div>
@@ -271,6 +275,11 @@
 <!-- Core plugin JavaScript-->
 <script src="<%=request.getContextPath() %>/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 
+<!-- MDB core JavaScript -->
+<%-- <script type="text/javascript" src="<%=request.getContextPath() %>/resources/mdb/js/popper.min.js"></script> --%>
+<%-- <script type="text/javascript" src="<%=request.getContextPath() %>/resources/mdb/js/bootstrap.min.js"></script> --%>
+<%-- <script type="text/javascript" src="<%=request.getContextPath() %>/resources/mdb/js/mdb.min.js"></script> --%>
+
 <!-- Custom scripts for all pages-->
 	<script src="<%=request.getContextPath() %>/resources/js/sb-admin-2.min.js"></script>
  <script>
@@ -279,23 +288,6 @@
 	  $('#myInput').trigger('focus')
 	})
  </script>
- <script>
- var strSal = "{'nom':'Durand','prenom':'Robert','numsecu'='123456'}";
- console.log(strSal);
- var listSalarie = "[{'nom':'Durand','prenom':'Robert','numsecu':'123456'},{'nom':'Laurent','prenom':'Michel','numsecu':'052156'}]"
- console.log(listSalarie);
- var str = '({"firstName":"Bill","lastName":"Gates"})';
- var obj = eval(str);
- console.dir(obj);
-//  var objSal = eval('('+strSal+')');
-//  console.dir(objSal.nom);
-
-//  var objListeSal = eval('('+listSalarie+')')
-//  console.dir(objListeSal); 
-//  strSal = "{'nom':'Durand','prenom':'Robert','numsecu':'123156647','':'',}";
-//  console.log(strSal);
- </script>
-    
 </body>
 
 </html>

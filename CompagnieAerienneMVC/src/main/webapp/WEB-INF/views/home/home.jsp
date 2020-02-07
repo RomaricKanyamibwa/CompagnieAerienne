@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Calev Devise Paie - Blank</title>
+<title>Compagnie Aerienne</title>
 
 <!-- Custom fonts for this template-->
 <link href="<%=request.getContextPath() %>/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"

@@ -9,10 +9,10 @@
 		class="sidebar-brand d-flex align-items-center justify-content-center"
 		href="index.html">
 		<div class="sidebar-brand-icon rotate-n-15">
-			<i class="fas fa-laugh-wink"></i>
+			<i class="fas fa-plane-departure"></i>
 		</div>
 		<div class="sidebar-brand-text mx-3">
-			Calev Devise Admin <sup>2</sup>
+			Compagnie Aerienne
 		</div>
 	</a>
 
@@ -69,39 +69,24 @@
 	<div>
 		<!--  <a class="collapse-item" href="../salarie">Salarié</a> -->
 		<c:url value="/salarie/" var="salarie" />
-		<li class="nav-item"><a class="nav-link" href="${salarie }">
-				<i class="fas fa-coins"></i> <fmt:message key="common.salarie" />
-		</a></li>
-		<c:url value="/employeur/" var="employeur" />
-		<li class="nav-item"><a class="nav-link" href="${employeur }">
-				<i class="fas fa-book"></i> <fmt:message key="common.employeur" />
-		</a></li>
-		<c:url value="/remunerationbrute/" var="remunerationbrute" />
-		<li class="nav-item"><a class="nav-link"
-			href="${remunerationbrute }"> <i class="fas fa-book"></i> <fmt:message
-					key="common.remunerationbrute" />
-		</a></li>
-		<c:url value="/impots/" var="impots" />
-		<li class="nav-item"><a class="nav-link" href="${impots }"> <i
-				class="fas fa-book"></i> <fmt:message key="common.impots" />
-		</a></li>
-		<c:url value="/salaire/" var="salaire" />
-		<li class="nav-item"><a class="nav-link" href="${salaire }">
-				<i class="fas fa-book"></i> <fmt:message key="common.salaire" />
-		</a></li>
-		<c:url value="/sante/" var="sante" />
-		<li class="nav-item"><a class="nav-link" href="${sante }"> <i
-				class="fas fa-book"></i> <fmt:message key="common.sante" />
-		</a></li>
-		<c:url value="/retraite/" var="retraite" />
-		<li class="nav-item"><a class="nav-link" href="${retraite }">
-				<i class="fas fa-book"></i> <fmt:message key="common.retraite" />
-		</a></li>
-		<div class="collapse-divider"></div>
-		<h6 class="collapse-header">Other Pages:</h6>
-		<a class="collapse-item" href="404.html">404 Page</a> <a
-			class="collapse-item active" href="blank.html">Blank Page</a>
-		</di>
+		<li class="nav-item">
+			<a class="nav-link" href="${salarie }"><i class="fas fa-coins"></i>
+			<fmt:message key="common.salarie" />
+			</a>
+		</li>
+		<c:url value="/pilote/" var="pilote" />
+		<li class="nav-item">
+			<a class="nav-link" href="${pilote}"><i class="fas fa-user-shield"></i>
+			<fmt:message key="common.pilote" />
+			</a>
+		</li>
+		<c:url value="/aeroport/" var="aeroport" />
+		<li class="nav-item">
+			<a class="nav-link" href="${aeroport}"><i class="fas fa-plane-arrival"></i>
+			<fmt:message key="common.aeroport" />
+			</a>
+		</li>
+		</div>
 		<!-- Nav Item - Pages Collapse Menu -->
 		<li class="nav-item active"><a class="nav-link" href="#"
 			data-toggle="collapse" data-target="#collapsePages"

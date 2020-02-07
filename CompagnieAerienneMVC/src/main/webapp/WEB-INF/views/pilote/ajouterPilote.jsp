@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Calev Devise Paie - Blank</title>
+<title>${title} - Ajouter un ${title.split("-")[1]}</title>
 
 <!-- Custom fonts for this template-->
 <link href="<%=request.getContextPath() %>/resources/vendor/fontawesome-free/css/all.min.css" rel="stylesheet"
@@ -45,13 +45,57 @@
 
 					<!-- Page Heading -->
 					<h1 class="h3 mb-4 text-gray-800"><fmt:message key="common.dashboard" /></h1>
-
+					<div class="row">
+					<div class="col-lg-12">
+					<div class="panel panel-primary">
+					<div class="panel panel-heading">
+					<fmt:message key="pilotes.nouveau" />
+					</div>
+					<div class="panel-body">
+						
+					</div>
+<div class="p-5">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4"><fmt:message key="pilotes.ajouter" /></h1>
+              </div>
+              <c:url value="/pilote/enregistrer" var ="urlEnregistrer"></c:url>
+              <f:form modelAttribute="pilote" action="${urlEnregistrer }" method="post">
+              <f:hidden path="idPilote"/>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                  <label><fmt:message key="common.nom" /></label>
+                    <f:input type="text" path="nomPilote" class="form-control form-control-user" placeholder="Nom"/>
+                  </div>
+                  <div class="col-sm-6">
+                  <label><fmt:message key="common.prenom" /></label>
+                    <f:input type="text" path="prenomPilote" class="form-control form-control-user" placeholder="Prénom"/>
+                  </div>
+                </div>         
+                  
+                </div>
+                <div class="panel-footer">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-save">&nbsp;<fmt:message key="common.enregistrer" /></i></button>
+                <a href="<c:url value="/pilote/"/>" class="btn btn-danger"><i class="fa fa-arrow-left">&nbsp;<fmt:message key="common.annuler" /></i></a>
+                </div>
+                <hr>
+                               
+              </f:form>
+              <hr>
+              <div class="text-center">
+                <a class="small" href="forgot-password.html">Forgot Password?</a>
+              </div>
+              <div class="text-center">
+                <a class="small" href="login.html">Already have an account? Login!</a>
+              </div>
+            </div>
 				</div>
 				<!-- /.container-fluid -->
 
 			</div>
 			<!-- End of Main Content -->
-
+</div>
+					</div>
+					</div>
 			<!-- Footer -->
 			<footer class="sticky-footer bg-white">
 				<div class="container my-auto">

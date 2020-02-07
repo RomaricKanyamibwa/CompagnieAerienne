@@ -31,10 +31,7 @@ public class Affectation {
     @EmbeddedId
 	private PK_KeyAffectation pkAffectation;
 	
-//	@JsonIgnore
 	@MapsId("NumVol")
-//	@OneToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name = "NumVol",unique = true,columnDefinition = "VARCHAR(5)")
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "NumVol")
     private Vol vol;

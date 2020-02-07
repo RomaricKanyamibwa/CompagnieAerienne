@@ -1,6 +1,6 @@
 <%@ include file="/WEB-INF/views/includes/includes.jsp"%>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
 
@@ -9,9 +9,10 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
-<meta name="author" content="">
+<meta name="author" content="Yes">
+<link rel="icon" href="<%=request.getContextPath()%>/resources/img/logo2.png">
 
-<title>Calev Devise Paie - Employeur</title>
+<title>${title}</title>
 
 <!-- Custom fonts for this template-->
 <link
@@ -20,8 +21,6 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
-
-<!-- Custom styles for this template-->
 <link
 	href="<%=request.getContextPath()%>/resources/css/sb-admin-2.min.css"
 	rel="stylesheet">
@@ -31,7 +30,7 @@
 <body id="page-top">
 
 	<!-- Page Wrapper -->
-<div id="wrapper">
+<div id="wrapper" >
 
 	<!-- Navigation -->
 <%@include file="/WEB-INF/views/menu_left/leftMenu.jsp"%>
@@ -91,27 +90,21 @@
 	<th class="sorting" tabindex="0" aria-controls="dataTable"
 		rowspan="1" colspan="1" style="width: 224px;"
 		aria-label="Position: activate to sort column ascending"><fmt:message
-			key="common.siret" /></th>
+			key="common.nom" /></th>
 	<th class="sorting" tabindex="0" aria-controls="dataTable"
 		rowspan="1" colspan="1" style="width: 103px;"
 		aria-label="Office: activate to sort column ascending"><fmt:message
-			key="common.raison" /></th>
-	<th class="sorting" tabindex="0" aria-controls="dataTable"
-		rowspan="1" colspan="1" style="width: 43px;"
-		aria-label="Age: activate to sort column ascending"><fmt:message
-			key="common.ape" /></th>
+			key="common.prenom" /></th>
 	<th class="sorting" tabindex="0" aria-controls="dataTable"
 		rowspan="1" colspan="1" style="width: 95px;"
 		aria-label="Start date: activate to sort column ascending"><fmt:message
 			key="common.action" /></th>
 
-	<fmt:message key="common.employeur.liste" />
+	<fmt:message key="common.pilotes.liste" />
 	<div class="row">
 	<div class="col-lg-12">
 	<ol class="breadcrumb">
-	<li><a href="<c:url value="/employeur/nouveau/" />"><i class="fas fa-plus">&nbsp;<fmt:message key="common.ajouter" />&nbsp; &nbsp; &nbsp;</i></a></li>
-	<li><a href="#"/><i class="fas fa-upload">&nbsp;<fmt:message key="common.exporter" />&nbsp; &nbsp; &nbsp;</i></li>
-	<li><a href="#"/><i class="fas fa-download">&nbsp;<fmt:message key="common.importer" />&nbsp; &nbsp; &nbsp;</i></li>
+	<li><a href="<c:url value="/pilote/nouveau/" />"><i class="fas fa-plus">&nbsp;<fmt:message key="common.ajouter" />&nbsp; &nbsp; &nbsp;</i></a></li>
 	</ol>
 	</div>
 	</div>
@@ -121,30 +114,27 @@
 		<th rowspan="1" colspan="1"><fmt:message
 			key="common.id" /></th>
 	<th rowspan="1" colspan="1"><fmt:message
-			key="common.siret" /></th>
+			key="common.nom" /></th>
 	<th rowspan="1" colspan="1"><fmt:message
-			key="common.raison" /></th>
-	<th rowspan="1" colspan="1"><fmt:message
-			key="common.ape" /></th>
+			key="common.prenom" /></th>
 
 </tr>
 		</tfoot>
 			<tbody>
-			<c:forEach items="${employeurs }" var="employeur">
+			<c:forEach items="${pilotes }" var="pilote">
 					<tr role="row" class="odd">
-						<td class="sorting_1">${employeur.getIdEmployeur() }</td>
-						<td>${employeur.getRaisonso() }</td>
-						<td>${employeur.getSiret() }</td>
-						<td>${employeur.getCodeAPE() }</td>
+						<td class="sorting_1">${pilote.getIdPilote()}</td>
+						<td>${pilote.getNomPilote() }</td>
+						<td>${pilote.getPrenomPilote() }</td>
 						<td>
-						<c:url value="/employeur/modifier/${employeur.getIdEmployeur() }" var="urlModif"></c:url>
+						<c:url value="/pilote/modifier/${pilote.getIdPilote() }" var="urlModif"></c:url>
 						<a href="${urlModif }"><i class="fa fa-edit">&nbsp;</i> </a>
 			&nbsp;|&nbsp;
 			<!-- Appel du notification pop up -->
-			 <c:url value="/employeur/supprimer/${employeur.getIdEmployeur() }" var="urlSupprim"></c:url>	
-			<a href="${urlSupprim }" data-toggle="modal" data-target="#modalEmployeur${employeur.getIdEmployeur() }"><i class="fa fa-trash-alt"></i></a>	 	
-			<%--<a href="javascript:void(0);" data-toggle="modal" data-target="#modalEmployeur${employeur.getIdEmployeur() }"><i class="fa fa-trash-alt"></i></a> --%>
-            <div class="modal fade" id="modalEmployeur${employeur.getIdEmployeur() }" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+			 <c:url value="/pilote/supprimer/${pilote.getIdPilote() }" var="urlSupprim"></c:url>	
+			<a href="${urlSupprim }" data-toggle="modal" data-target="#modalPilote${pilote.getIdPilote() }"><i class="fa fa-trash-alt"></i></a>	 	
+			<%--<a href="javascript:void(0);" data-toggle="modal" data-target="#modalPilote${pilote.getIdPilote() }"><i class="fa fa-trash-alt"></i></a> --%>
+            <div class="modal fade" id="modalPilote${pilote.getIdPilote() }" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
 <div class="modal-dialog">
 	<div class="modal-content">
 		<div class="modal-header">
@@ -152,11 +142,11 @@
 			<h4 class="modal-title" id="myModalLabel"><fmt:message key="common.confirm.suppression" /></h4>
 		</div>
 		<div class="modal-body">
-			<fmt:message key="client.confirm.suppression.msg" />
+			<fmt:message key="pilote.confirm.suppression.msg" />
 		</div>
 		<div class="modal-footer">
 			<button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message key="common.annuler" /></button>
-			<c:url value="/employeur/supprimer/${employeur.getIdEmployeur() }" var="urlSuppression" />
+			<c:url value="/pilote/supprimer/${pilote.getIdPilote() }" var="urlSuppression" />
 			<a href="${urlSuppression }" class="btn btn-danger"><i class="fa fa-trash-alt"></i>&nbsp;<fmt:message key="common.confirmer" /></a>
 		</div>
 	</div>
@@ -257,7 +247,7 @@
 			<div class="modal-footer">
 				<button class="btn btn-secondary" type="button"
 					data-dismiss="modal">Cancel</button>
-				<a class="btn btn-primary"
+				<a class="btn btn-success"
 					href="<%=request.getContextPath()%>/resources/login.html">Logout</a>
 			</div>
 		</div>
@@ -271,15 +261,19 @@
 <!-- Core plugin JavaScript-->
 <script src="<%=request.getContextPath() %>/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 
+<!-- MDB core JavaScript -->
+<%-- <script type="text/javascript" src="<%=request.getContextPath() %>/resources/mdb/js/popper.min.js"></script> --%>
+<%-- <script type="text/javascript" src="<%=request.getContextPath() %>/resources/mdb/js/bootstrap.min.js"></script> --%>
+<%-- <script type="text/javascript" src="<%=request.getContextPath() %>/resources/mdb/js/mdb.min.js"></script> --%>
+
 <!-- Custom scripts for all pages-->
 	<script src="<%=request.getContextPath() %>/resources/js/sb-admin-2.min.js"></script>
  <script>
 
- $('#modalEmployeur').on('shown.bs.modal', function () {
+ $('#modalPilote').on('shown.bs.modal', function () {
 	  $('#myInput').trigger('focus')
 	})
  </script>
-    
 </body>
 
 </html>
