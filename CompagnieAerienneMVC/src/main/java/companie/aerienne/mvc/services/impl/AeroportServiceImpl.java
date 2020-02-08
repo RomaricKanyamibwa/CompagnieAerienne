@@ -41,13 +41,13 @@ public class AeroportServiceImpl implements IAeroportService{
 	}
 
 	@Override
-	public Aeroport getById(Long id) {
+	public Aeroport getById(String id) {
 		
 		return dao.getById(id);
 	}
 
 	@Override
-	public void remove(Long id) {
+	public void remove(String id) {
 		dao.remove(id);
 	}
 

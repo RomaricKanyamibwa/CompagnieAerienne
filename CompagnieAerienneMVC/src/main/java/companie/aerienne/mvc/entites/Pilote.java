@@ -18,7 +18,7 @@ public class Pilote {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="idPilote")
-	private Integer idPilote;
+	private Long idPilote;
 	@Column(name="nomPilote",columnDefinition="VARCHAR(50)",nullable = false)
 	private String nomPilote; 
 	@Column(name="prenomPilote",columnDefinition="VARCHAR(30)",nullable = false)
@@ -30,7 +30,7 @@ public class Pilote {
 		super();
 	}
 	
-	public Pilote(Integer idPilote, String nomPilote, String prenomPilote) {
+	public Pilote(Long idPilote, String nomPilote, String prenomPilote) {
 		super();
 		this.idPilote = idPilote;
 		this.nomPilote = nomPilote;
@@ -42,10 +42,10 @@ public class Pilote {
 		this.prenomPilote = prenomPilote;
 	}
 	
-	public Integer getIdPilote() {
+	public Long getIdPilote() {
 		return idPilote;
 	}
-	public void setIdPilote(Integer idPilote) {
+	public void setIdPilote(Long idPilote) {
 		this.idPilote = idPilote;
 	}
 	public String getNomPilote() {

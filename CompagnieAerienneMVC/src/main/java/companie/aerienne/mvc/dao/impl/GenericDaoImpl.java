@@ -12,7 +12,7 @@ import javax.persistence.Query;
 import companie.aerienne.mvc.dao.IGenericDao;
 
 @SuppressWarnings("unchecked")
-public class GenericDaoImpl<T> implements IGenericDao<T> {
+public class GenericDaoImpl<T,E> implements IGenericDao<T,E> {
 	
 	@PersistenceContext
 	EntityManager em;
@@ -57,13 +57,13 @@ Query query = em.createQuery("select t from "+type.getSimpleName()+" t");
 	}
 
 	@Override
-	public T getById(Long id) {
+	public T getById(E id) {
 		
 		return em.find(type, id);
 	}
 
 	@Override
-	public void remove(Long id) {
+	public void remove(E id) {
 		T tab = em.getReference(type, id);
 		em.remove(tab);
 	}

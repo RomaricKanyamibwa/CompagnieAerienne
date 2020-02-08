@@ -14,21 +14,17 @@
 					<th class="sorting" tabindex="0" aria-controls="dataTable"
 						rowspan="1" colspan="1" style="width: 224px;"
 						aria-label="Position: activate to sort column ascending"><fmt:message
-							key="common.nom" /></th>
-					<th class="sorting" tabindex="0" aria-controls="dataTable"
-						rowspan="1" colspan="1" style="width: 103px;"
-						aria-label="Office: activate to sort column ascending"><fmt:message
-							key="common.prenom" /></th>
+							key="common.constructeur" /></th>
 					<th class="sorting" tabindex="0" aria-controls="dataTable"
 						rowspan="1" colspan="1" style="width: 95px;"
 						aria-label="Start date: activate to sort column ascending"><fmt:message
 							key="common.action" /></th>
 
-					<fmt:message key="common.pilotes.liste" />
+					<fmt:message key="common.constructeurs.liste" />
 					<div class="row">
 						<div class="col-lg-12">
 							<ol class="breadcrumb">
-								<li><a href="<c:url value="/pilote/nouveau/" />"><i
+								<li><a href="<c:url value="/constructeur/nouveau/" />"><i
 										class="fas fa-plus">&nbsp;<fmt:message
 												key="common.ajouter" />&nbsp; &nbsp; &nbsp;
 									</i></a></li>
@@ -39,26 +35,24 @@
 			<tfoot>
 				<tr>
 					<th rowspan="1" colspan="1"><fmt:message key="common.id" /></th>
-					<th rowspan="1" colspan="1"><fmt:message key="common.nom" /></th>
-					<th rowspan="1" colspan="1"><fmt:message key="common.prenom" /></th>
+					<th rowspan="1" colspan="1"><fmt:message key="common.constructeur" /></th>
 
 				</tr>
 			</tfoot>
 			<tbody>
-				<c:forEach items="${pilotes }" var="pilote">
+				<c:forEach items="${constructeurs }" var="constructeur">
 					<tr role="row" class="odd">
-						<td class="sorting_1">${pilote.getIdPilote()}</td>
-						<td>${pilote.getNomPilote() }</td>
-						<td>${pilote.getPrenomPilote() }</td>
-						<td><c:url value="/pilote/modifier/${pilote.getIdPilote() }"
+						<td class="sorting_1">${constructeur.getIdConstructeur()}</td>
+						<td>${constructeur.getNomConstructeur() }</td>
+						<td><c:url value="/constructeur/modifier/${constructeur.getIdConstructeur() }"
 								var="urlModif"></c:url> <a href="${urlModif }"><i
 								class="fa fa-edit">&nbsp;</i> </a> &nbsp;|&nbsp; <!-- Appel du notification pop up -->
-							<c:url value="/pilote/supprimer/${pilote.getIdPilote() }"
+							<c:url value="/constructeur/supprimer/${constructeur.getIdConstructeur() }"
 								var="urlSupprim"></c:url> <a href="${urlSupprim }"
 							data-toggle="modal"
-							data-target="#modalPilote${pilote.getIdPilote() }"><i
-								class="fa fa-trash-alt"></i></a> <%--<a href="javascript:void(0);" data-toggle="modal" data-target="#modalPilote${pilote.getIdPilote() }"><i class="fa fa-trash-alt"></i></a> --%>
-							<div class="modal fade" id="modalPilote${pilote.getIdPilote() }"
+							data-target="#modalConstructeur${constructeur.getIdConstructeur() }"><i
+								class="fa fa-trash-alt"></i></a> <%--<a href="javascript:void(0);" data-toggle="modal" data-target="#modalConstructeur${constructeur.getIdConstructeur() }"><i class="fa fa-trash-alt"></i></a> --%>
+							<div class="modal fade" id="modalConstructeur${constructeur.getIdConstructeur() }"
 								tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
 								aria-hidden="false">
 								<div class="modal-dialog">
@@ -71,14 +65,14 @@
 											</h4>
 										</div>
 										<div class="modal-body">
-											<fmt:message key="pilote.confirm.suppression.msg" />
+											<fmt:message key="constructeur.confirm.suppression.msg" />
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-default"
 												data-dismiss="modal">
 												<fmt:message key="common.annuler" />
 											</button>
-											<c:url value="/pilote/supprimer/${pilote.getIdPilote() }"
+											<c:url value="/constructeur/supprimer/${constructeur.getIdConstructeur() }"
 												var="urlSuppression" />
 											<a href="${urlSuppression }" class="btn btn-danger"><i
 												class="fa fa-trash-alt"></i>&nbsp;<fmt:message

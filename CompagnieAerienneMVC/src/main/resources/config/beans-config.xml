@@ -3,13 +3,25 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="salarieDao" class="companie.aerienne.mvc.dao.impl.SalarieDaoImpl"/>
-       <bean id="salarieService" class="companie.aerienne.mvc.services.impl.SalarieServiceImpl">
-        <property name="dao" ref="salarieDao" />
-    </bean>
-    <bean id="piloteDao" class="companie.aerienne.mvc.dao.impl.PiloteDaoImpl"/>
-       <bean id="piloteService" class="companie.aerienne.mvc.services.impl.PiloteServiceImpl">
-        <property name="dao" ref="piloteDao" />
-    </bean>
+	<bean id="piloteDao"
+		class="companie.aerienne.mvc.dao.impl.PiloteDaoImpl" />
+	<bean id="piloteService"
+		class="companie.aerienne.mvc.services.impl.PiloteServiceImpl">
+		<property name="dao" ref="piloteDao" />
+	</bean>
+
+	<bean id="aeroportDao"
+		class="companie.aerienne.mvc.dao.impl.AeroportDaoImpl" />
+	<bean id="aeroportService"
+		class="companie.aerienne.mvc.services.impl.AeroportServiceImpl">
+		<property name="dao" ref="aeroportDao" />
+	</bean>
+	
+	<bean id="constructeurDao"
+		class="companie.aerienne.mvc.dao.impl.ConstructeurDaoImpl" />
+	<bean id="constructeurService"
+		class="companie.aerienne.mvc.services.impl.ConstructeurServiceImpl">
+		<property name="dao" ref="constructeurDao" />
+	</bean>
 
 </beans>

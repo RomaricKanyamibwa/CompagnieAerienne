@@ -9,9 +9,9 @@ public interface IAeroportService {
 	public Aeroport update(Aeroport entity);
 	public List<Aeroport> selectAll();
 	public List<Aeroport> selectAll(String sortField, String sort);
-	public Aeroport getById(Long id);
+	public Aeroport getById(String id);
 	
-	public void remove(Long id);
+	public void remove(String id);
 	public Aeroport findOne(String paramName, Object[] paramValue);
 	public Aeroport findOne(String[] paramNames, Object[] paramValues);
 	public Aeroport findOne(String paramName, String paramValue);

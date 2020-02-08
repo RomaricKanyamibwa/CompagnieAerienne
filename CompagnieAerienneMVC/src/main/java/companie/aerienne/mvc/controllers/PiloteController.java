@@ -23,6 +23,9 @@ public class PiloteController {
 	
 	@Autowired
 	private IPiloteService piloteService; 
+	private String className="Pilote";
+	private String title="Compagnie Aerienne - "+className;
+	
 	@RequestMapping(value="")
 	public String pilote(Model model) {
 		List<Pilote> pilotes = piloteService.selectAll();
@@ -30,7 +33,8 @@ public class PiloteController {
 			pilotes=new ArrayList<Pilote>();
 		}
 		model.addAttribute("pilotes",pilotes);
-		model.addAttribute("title","Compagnie Aerienne - Pilote");
+		model.addAttribute("title",title);
+		model.addAttribute("modalName",className);
 		return "pilote/pilote";
 	}
 	
@@ -38,7 +42,7 @@ public class PiloteController {
 	public String ajouterPilote(Model model) {
 		Pilote pilote = new Pilote();		
 		model.addAttribute("pilote",pilote);
-		model.addAttribute("title","Compagnie Aerienne - Pilote");
+		model.addAttribute("title",title);
 		return "pilote/ajouterPilote";
 	}
 	
@@ -60,7 +64,7 @@ public class PiloteController {
 			  if(pilote != null)
 			  { 
 				  model.addAttribute("pilote",pilote);
-				  model.addAttribute("title","Compagnie Aerienne - Pilote");
+				  model.addAttribute("title",title);
 			  }
 		  }
 	  
