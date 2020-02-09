@@ -23,18 +23,26 @@
 							placeholder="Type d'Avion e.g. A380" pattern="^[A-Z][A-Z0-9]+"
 							title="Le Type d'Avion doit commencer obligatoirement par une lettre"
 							required="true" />
+
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-6 mb-3 mb-sm-0">
 							<label><fmt:message key="common.capacite" /></label>
-							<f:input  type="number" min="50" max="400" path="capacite"
+							<f:input type="number" min="50" max="400" path="capacite"
 								class="form-control form-control-user"
 								placeholder="Capacite d'avion" />
 						</div>
 						<div class="col-sm-6">
 							<label><fmt:message key="common.constructeur" /></label>
-							<f:input type="text"  path="constructeur.idConstructeur"
-								class="form-control form-control-user" />
+							<select name="constructeur.idConstructeur" path="constructeur.idConstructeur"
+								class="custom-select" 
+<%-- 								${item.idConstructeur == type.constructeur.idConstructeur ? 'selected="selected"' : ''} --%>
+								>
+								<c:forEach var="item" items="${constructeurs}">
+									<option value="${item.idConstructeur}">
+										${item.nomConstructeur}</option>
+								</c:forEach>
+							</select>
 						</div>
 					</div>
 			</div>

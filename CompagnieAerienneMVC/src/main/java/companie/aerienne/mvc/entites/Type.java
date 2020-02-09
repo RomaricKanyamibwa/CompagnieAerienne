@@ -2,6 +2,7 @@ package companie.aerienne.mvc.entites;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,15 +24,6 @@ import org.hibernate.annotations.Parameter;;
 public class Type implements Serializable{
 	
 	@Id
-//	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "typeavion_seq")
-//    @GenericGenerator(
-//        name = "typeavion_seq", 
-//        strategy = "companie.aerienne.mvc.entites.StringPrefixedSequenceIdGenerator", 
-//        parameters = {
-//            @Parameter(name = StringPrefixedSequenceIdGenerator.INCREMENT_PARAM, value = "1"),
-//            @Parameter(name = StringPrefixedSequenceIdGenerator.VALUE_PREFIX_PARAMETER,
-//            value = "A"),
-//            @Parameter(name = StringPrefixedSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%03d") })
 	@Column(name = "typeAvion",insertable = true,unique=true,columnDefinition="VARCHAR(20)")
 	private String typeAvion;
 	@Column(name = "capacite")
@@ -39,13 +31,11 @@ public class Type implements Serializable{
 	private Short capacite=100;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "idConstructeur",nullable = false)
+	@JoinColumn(name = "idConstructeur")
 	private Constructeur constructeur;
 
 	public Type() {
 	}
-	
-	
 
 	public Type(String typeAvion, Short capacite) {
 		this.typeAvion = typeAvion;
@@ -81,10 +71,5 @@ public class Type implements Serializable{
 
 	public void setConstructeur(Constructeur constructeur) {
 		this.constructeur = constructeur;
-	}
-	
-	public void setConstructeur(String constructeur) {
-		this.constructeur = new Constructeur();
-		this.constructeur.setNomConstructeur(constructeur);
 	}
 }
