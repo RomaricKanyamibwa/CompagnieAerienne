@@ -82,6 +82,11 @@
 		<i class="fas fa-tools"></i>
 		<fmt:message key="common.constructeur" />
 		</a></li>
+		<c:url value="/type/" var="type" />
+		<li class="nav-item"><a class="nav-link" href="${type}">
+		<i class="fas fa-plane"></i>
+		<fmt:message key="common.type" />
+		</a></li>
 	</div>
 	<!-- Nav Item - Pages Collapse Menu -->
 	<li class="nav-item active"><a class="nav-link" href="#"

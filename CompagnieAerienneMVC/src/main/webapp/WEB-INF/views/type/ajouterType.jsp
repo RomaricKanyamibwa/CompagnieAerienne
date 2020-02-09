@@ -3,40 +3,38 @@
 	<div class="col-lg-12">
 		<div class="panel panel-primary">
 			<div class="panel panel-heading">
-				<fmt:message key="aeroports.nouveau" />
+				<fmt:message key="types.nouveau" />
 			</div>
 			<div class="panel-body"></div>
 			<div class="p-5">
 				<div class="text-center">
 					<h1 class="h4 text-gray-900 mb-4">
-						<fmt:message key="aeroports.ajouter" />
+						<fmt:message key="types.ajouter" />
 					</h1>
 				</div>
-				<c:url value="/aeroport/enregistrer" var="urlEnregistrer"></c:url>
-				<f:form modelAttribute="aeroport" action="${urlEnregistrer }"
+				<c:url value="/type/enregistrer" var="urlEnregistrer"></c:url>
+				<f:form modelAttribute="type" action="${urlEnregistrer }"
 					method="post">
 					<%--               <f:hidden path="idAeroport"/> --%>
 					<div class="form-group">
-						<label><fmt:message key="common.id" /></label>
-						<f:input type="text" path="idAeroport"
+						<label><fmt:message key="common.type" /></label>
+						<f:input type="text" path="typeAvion"
 							class="form-control form-control-user"
-							placeholder="identifiant de l'aeroport e.g. CDG"
-							pattern="[A-Za-z]{3}"
-							maxlength="3"
-							title="L'identifiant doit être un mot de 3 lettres"
+							placeholder="Type d'Avion e.g. A380" pattern="^[A-Z][A-Z0-9]+"
+							title="Le Type d'Avion doit commencer obligatoirement par une lettre"
 							required="true" />
 					</div>
 					<div class="form-group row">
 						<div class="col-sm-6 mb-3 mb-sm-0">
-							<label><fmt:message key="common.aeroport" /></label>
-							<f:input type="text" path="nomAeroport"
+							<label><fmt:message key="common.capacite" /></label>
+							<f:input  type="number" min="50" max="400" path="capacite"
 								class="form-control form-control-user"
-								placeholder="Nom Aeroport" required="true" />
+								placeholder="Capacite d'avion" />
 						</div>
 						<div class="col-sm-6">
-							<label><fmt:message key="common.villeD" /></label>
-							<f:input type="text" path="NomVilleDesservie"
-								class="form-control form-control-user" placeholder="Ville" />
+							<label><fmt:message key="common.constructeur" /></label>
+							<f:input type="text"  path="constructeur.idConstructeur"
+								class="form-control form-control-user" />
 						</div>
 					</div>
 			</div>
@@ -45,7 +43,7 @@
 					<i class="fa fa-save">&nbsp;<fmt:message
 							key="common.enregistrer" /></i>
 				</button>
-				<a href="<c:url value="/aeroport/"/>" class="btn btn-danger"><i
+				<a href="<c:url value="/type/"/>" class="btn btn-danger"><i
 					class="fa fa-arrow-left">&nbsp;<fmt:message
 							key="common.annuler" /></i></a>
 			</div>

@@ -70,19 +70,4 @@ public class Constructeur implements Serializable {
 	}
 
 
-//	public List<Type> getComments() {
-//		return comments;
-//	}
-//
-//
-//	public void setComments(List<Type> comments) {
-//		this.comments = comments;
-//	}
-
-
-
-
-
-
-
 }

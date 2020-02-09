@@ -5,8 +5,6 @@ package companie.aerienne.mvc.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import companie.aerienne.mvc.entites.Constructeur;
-import companie.aerienne.mvc.services.IGenericService;
+import companie.aerienne.mvc.services.IConstructeurService;
 
 @Controller
 @RequestMapping(value = "/constructeur", method = RequestMethod.GET)
 public class ConstructeurController {
 	
 	@Autowired
-	private IGenericService<Constructeur, Long> constructeurService; 
+	private IConstructeurService constructeurService; 
 	private String className="Constructeur";
 	private String title="Compagnie Aerienne - "+className;
 	
