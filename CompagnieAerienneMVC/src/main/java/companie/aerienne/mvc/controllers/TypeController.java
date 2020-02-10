@@ -26,7 +26,6 @@ public class TypeController {
 	private ITypeService typeService; 
 	@Autowired
 	private IConstructeurService constructorService;//
-//	= new ConstructeurServiceImpl();
 	private String className="Type";
 	private String title="Compagnie Aerienne - "+className;
 	
@@ -57,6 +56,8 @@ public class TypeController {
 	  @RequestMapping(value ="/enregistrer", method = RequestMethod.POST) 
 	  public String enregistrerType(Model model,Type type) {
 		  if(type.getTypeAvion() != null) {
+			  if(type.getConstructeur().getIdConstructeur()==0)
+				  type.setConstructeur(null);
 			  typeService.update(type);
 		  }else {
 		  typeService.save(type);
@@ -70,9 +71,12 @@ public class TypeController {
 			  Type type = typeService.getById(id);
 			  if(type != null)
 			  { 
+				  if(type.getConstructeur()==null)
+					  type.setConstructeur(new Constructeur());
 				  List<Constructeur> constructeurs=this.constructorService.selectAll();
 				  model.addAttribute("constructeurs", constructeurs);
 				  model.addAttribute("type",type);
+				  model.addAttribute("selectedConstructeur",type.getConstructeur().getIdConstructeur());
 				  model.addAttribute("title",title);
 			  }
 		  }

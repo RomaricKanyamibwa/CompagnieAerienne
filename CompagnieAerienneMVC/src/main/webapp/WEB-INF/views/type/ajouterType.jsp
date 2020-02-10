@@ -35,11 +35,11 @@
 						<div class="col-sm-6">
 							<label><fmt:message key="common.constructeur" /></label>
 							<select name="constructeur.idConstructeur" path="constructeur.idConstructeur"
-								class="custom-select" 
-<%-- 								${item.idConstructeur == type.constructeur.idConstructeur ? 'selected="selected"' : ''} --%>
-								>
+								class="custom-select">
+								<option value="0">(Vide)</option>
 								<c:forEach var="item" items="${constructeurs}">
-									<option value="${item.idConstructeur}">
+									<option value="${item.idConstructeur}"
+									${item.idConstructeur == selectedConstructeur ? 'selected="selected"' : ''}>
 										${item.nomConstructeur}</option>
 								</c:forEach>
 							</select>

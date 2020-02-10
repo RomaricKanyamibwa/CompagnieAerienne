@@ -87,6 +87,11 @@
 		<i class="fas fa-plane"></i>
 		<fmt:message key="common.type" />
 		</a></li>
+		<c:url value="/avion/" var="avion" />
+		<li class="nav-item"><a class="nav-link" href="${avion}">
+		<i class="fas fa-fighter-jet"></i>
+		<fmt:message key="common.avion" />
+		</a></li>
 	</div>
 	<!-- Nav Item - Pages Collapse Menu -->
 	<li class="nav-item active"><a class="nav-link" href="#"

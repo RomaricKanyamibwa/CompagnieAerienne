@@ -30,5 +30,12 @@
 		class="companie.aerienne.mvc.services.impl.TypeServiceImpl">
 		<property name="dao" ref="typeDao" />
 	</bean>
+	
+	<bean id="avionDao"
+		class="companie.aerienne.mvc.dao.impl.AvionDaoImpl" />
+	<bean id="avionService"
+		class="companie.aerienne.mvc.services.impl.AvionServiceImpl">
+		<property name="dao" ref="avionDao" />
+	</bean>
 
 </beans>
