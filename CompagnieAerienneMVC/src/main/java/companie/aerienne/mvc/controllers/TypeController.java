@@ -16,7 +16,6 @@ import companie.aerienne.mvc.entites.Constructeur;
 import companie.aerienne.mvc.entites.Type;
 import companie.aerienne.mvc.services.IConstructeurService;
 import companie.aerienne.mvc.services.ITypeService;
-import companie.aerienne.mvc.services.impl.ConstructeurServiceImpl;
 
 @Controller
 @RequestMapping(value = "/type", method = RequestMethod.GET)

@@ -1,4 +1,4 @@
-package com.compagnie_aerienneboot.rest.models;
+package companie.aerienne.mvc.entites;
 
 import java.util.Date;
 
@@ -13,10 +13,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="Affectation")
@@ -63,12 +60,6 @@ public class Affectation {
 		return pkAffectation;
 	}
 
-	@Override
-	public String toString() {
-		return "Affectation [pkAffectation=" + pkAffectation + ", vol=" + vol + ", avion=" + avion + ", pilote="
-				+ pilote + "]";
-	}
-
 	public void setPkAffectation(PK_KeyAffectation pkAffectation) {
 		this.pkAffectation = pkAffectation;
 	}
@@ -96,6 +87,13 @@ public class Affectation {
 	public void setAvion(Avion avion) {
 		this.avion = avion;
 	}
+
+	@Override
+	public String toString() {
+		return "Affectation [pkAffectation=" + pkAffectation + ", vol=" + vol + ", avion=" + avion + ", pilote="
+				+ pilote + "]";
+	}
+	
 	
 	
 }

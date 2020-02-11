@@ -1,4 +1,4 @@
-package com.compagnie_aerienneboot.rest.models;
+package companie.aerienne.mvc.entites;
 
 import java.io.Serializable;
 
@@ -72,12 +72,6 @@ public class PK_KeyAffectation implements Serializable {
 		} else if (!NumVol.equals(other.NumVol))
 			return false;
 		return true;
-	}
-
-
-	@Override
-	public String toString() {
-		return "PK_KeyAffectation [NumVol=" + NumVol + ", DateVol=" + DateVol + "]";
 	}
 	
 	

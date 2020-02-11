@@ -92,6 +92,16 @@
 		<i class="fas fa-fighter-jet"></i>
 		<fmt:message key="common.avion" />
 		</a></li>
+		<c:url value="/vol/" var="vol" />
+		<li class="nav-item"><a class="nav-link" href="${vol}">
+		<i class="fas fa-business-time"></i>
+		<fmt:message key="common.vol" />
+		</a></li>
+		<c:url value="/affectation/" var="affectation" />
+		<li class="nav-item"><a class="nav-link" href="${affectation}">
+		<i class="fas fa-calendar-check"></i>
+		<fmt:message key="common.affectation" />
+		</a></li>
 	</div>
 	<!-- Nav Item - Pages Collapse Menu -->
 	<li class="nav-item active"><a class="nav-link" href="#"

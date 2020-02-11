@@ -61,7 +61,48 @@
 <!-- Custom scripts for all pages-->
 <script
 	src="<%=request.getContextPath()%>/resources/js/sb-admin-2.min.js"></script>
+<script
+	src="<%=request.getContextPath()%>/resources/js/moment.min.js"></script>
+<script
+	src="<%=request.getContextPath()%>/resources/js/bootstrap-datetimepicker.min.js"></script>
 
+<!-- <!-- Bootstrap tooltips --> -->
+<!-- <script type="text/javascript" -->
+<%-- 	src="<%=request.getContextPath()%>/resources/mdb/js/popper.min.js"></script> --%>
+<!-- <!-- MDB core JavaScript --> -->
+<!-- <script type="text/javascript" -->
+<%-- 	src="<%=request.getContextPath()%>/resources/mdb/js/mdb.min.js"></script> --%>
+<script type="text/javascript">
+            $(function () {
+            	 $('#datetimepicker4').datetimepicker({
+                     format: 'YYYY-MM-DD',
+                     icons: {
+                         up: "fa fa-chevron-circle-up",
+                         down: "fa fa-chevron-circle-down",
+                         next: 'fa fa-chevron-circle-right',
+                         previous: 'fa fa-chevron-circle-left'
+                     }
+                 });
+                $('#datetimepicker3').datetimepicker({
+                    format: 'HH:mm',
+                    icons: {
+                        up: "fa fa-chevron-circle-up",
+                        down: "fa fa-chevron-circle-down",
+                        next: 'fa fa-chevron-circle-right',
+                        previous: 'fa fa-chevron-circle-left'
+                    }
+                });
+                $('#datetimepicker2').datetimepicker({
+                    format: 'HH:mm',
+                    icons: {
+                        up: "fa fa-chevron-circle-up",
+                        down: "fa fa-chevron-circle-down",
+                        next: 'fa fa-chevron-circle-right',
+                        previous: 'fa fa-chevron-circle-left'
+                    }
+                });
+            });
+        </script>
 </body>
 
 </html>

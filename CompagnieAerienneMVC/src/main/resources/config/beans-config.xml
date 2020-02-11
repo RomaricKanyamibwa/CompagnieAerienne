@@ -37,5 +37,19 @@
 		class="companie.aerienne.mvc.services.impl.AvionServiceImpl">
 		<property name="dao" ref="avionDao" />
 	</bean>
+	
+	<bean id="volDao"
+		class="companie.aerienne.mvc.dao.impl.VolDaoImpl" />
+	<bean id="volService"
+		class="companie.aerienne.mvc.services.impl.VolServiceImpl">
+		<property name="dao" ref="volDao" />
+	</bean>
+	
+	<bean id="affectationDao"
+		class="companie.aerienne.mvc.dao.impl.AffectationDaoImpl" />
+	<bean id="affectationService"
+		class="companie.aerienne.mvc.services.impl.AffectationServiceImpl">
+		<property name="dao" ref="affectationDao" />
+	</bean>
 
 </beans>
