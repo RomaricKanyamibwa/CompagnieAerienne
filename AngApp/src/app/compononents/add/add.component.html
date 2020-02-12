@@ -1,0 +1,23 @@
+<div class="card my-5">
+    <div class="card-body">
+
+        <form class="col s12" [formGroup]="form" (ngSubmit)="create()">
+            <div class="form-group">
+                <input id="nom" type="text" formControlName="nom" data-length="20" class="form-control">
+                <label for="nom">NOM</label>
+            </div>
+
+            <div class="form-group">
+                <input id="prenom" type="text" formControlName="prenom" data-length="20" class="form-control">
+                <label for="prenom">PRENOM</label>
+            </div>
+
+            <div class="form-group">
+                <input id="numsecu" type="text" formControlName="numsecu" data-length="10" class="form-control">
+                <label for="numsecu">Numero de Securite</label>
+            </div>
+            <button type="submit" [disabled]="!form.valid" class="btn btn-info">Submit</button>
+        </form>
+
+    </div>
+</div>
