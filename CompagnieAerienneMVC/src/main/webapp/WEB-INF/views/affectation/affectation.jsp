@@ -62,10 +62,10 @@
 							<c:url value="/affectation/supprimer/${affectation.getPkAffectation().getNumVol()}/${affectation.getPkAffectation().getDateVol()}/"
 								var="urlSupprim"></c:url> <a href="${urlSupprim }"
 							data-toggle="modal"
-							data-target="#modalVol${affectation.getPkAffectation().getNumVol()}/${affectation.getPkAffectation().getDateVol()}/"><i
+							data-target="#modalAffectation${affectation.getPkAffectation().getNumVol()}"><i
 								class="fa fa-trash-alt"></i></a> <%--<a href="javascript:void(0);" data-toggle="modal" data-target="#modalVol${affectation.getPkAffectation().getNumVol()}/${affectation.getPkAffectation().getDateVol()}"><i class="fa fa-trash-alt"></i></a> --%>
 							<div class="modal fade"
-								id="modalVol${affectation.getPkAffectation().getNumVol()}/${affectation.getPkAffectation().getDateVol()}/" tabindex="-1"
+								id="modalAffectation${affectation.getPkAffectation().getNumVol()}" tabindex="-1"
 								role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
 								<div class="modal-dialog">
 									<div class="modal-content">
@@ -85,7 +85,7 @@
 												<fmt:message key="common.annuler" />
 											</button>
 											<c:url
-												value="/affectation/supprimer/${affectation.getPkAffectation().getNumVol()}/${affectation.getPkAffectation().getDateVol()}"
+												value="/affectation/supprimer/${affectation.getPkAffectation().getNumVol()}/${affectation.getPkAffectation().getDateVol()}/"
 												var="urlSuppression" />
 											<a href="${urlSuppression }" class="btn btn-danger"><i
 												class="fa fa-trash-alt"></i>&nbsp;<fmt:message

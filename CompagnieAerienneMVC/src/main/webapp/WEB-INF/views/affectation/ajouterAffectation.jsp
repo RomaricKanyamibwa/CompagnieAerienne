@@ -23,7 +23,7 @@
 								<!-- 								<option value="0">(Vide)</option> -->
 								<c:forEach var="item" items="${vols}">
 									<option value="${item.getNumVol()}"
-										${item.getNumVol() == selectedValue2 ? 'selected="selected"' : ''}>
+										${item.getNumVol() == selectedValue ? 'selected="selected"' : ''}>
 										${item.getNumVol()} - ${item.getAeroportDept().getNomAeroport()}</option>
 								</c:forEach>
 							</select>
@@ -55,10 +55,9 @@
 							<label><fmt:message key="common.pilote" /></label> <select
 								name="pilote.idPilote" path="pilote.idPilote"
 								class="custom-select">
-								<!-- 								<option value="0">(Vide)</option> -->
 								<c:forEach var="item" items="${pilotes}">
 									<option value="${item.getIdPilote()}"
-										${item.getIdPilote() == selectedValue2 ? 'selected="selected"' : ''}>
+										${item.getIdPilote() == selectedValue3 ? 'selected="selected"' : ''}>
 										${item.getIdPilote()} / ${item.getNomPilote()} - ${item.getPrenomPilote()}</option>
 								</c:forEach>
 							</select>
