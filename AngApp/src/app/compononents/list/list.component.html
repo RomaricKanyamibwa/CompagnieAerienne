@@ -3,22 +3,15 @@
       <table class="table table-bordered table-striped">
         <thead class="thead-dark">
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Prenom</th>
-            <th scope="col">Numero de Securité sociale</th>
-            <th scope="col"></th>
+            <th scope="col"  *ngFor="let s of tabTitles">{{s}}</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let s of salaries">
-            <td>{{ s.id }}</td>
-            <td>{{ s.nom }}</td>
-            <td>{{ s.prenom}}</td>
-            <td>{{ s.numsecu}}</td>
-            <td>
-              <a routerLink="edit{{salaries.id}}" class="waves-effect waves-light btn #e65100 green" style="margin-right:5px;">Editer</a> 
-            <a routerLink="/salaries/{{salaries.id}}" class="waves-effect waves-light btn red">  Supprimer</a>
+          <tr *ngFor="let s of models">
+            <td *ngFor="let p of modelsProps">{{s[p]}}</td>
+            <td> 
+              <a routerLink="edit/{{s[modelsProps[0]]}}" class="waves-effect waves-light btn #e65100 green" style="margin-right:5px;">Editer</a> 
+              <a routerLink="/delete/{{s[modelsProps[0]]}}" class="waves-effect waves-light btn red">  Supprimer</a>
             </td>
             
           </tr>

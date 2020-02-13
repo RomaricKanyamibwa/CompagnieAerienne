@@ -1,5 +1,15 @@
-export class Pilote {
+import { Model } from './model';
+
+export class Pilote extends Model {
     idPilote:number;
-    NomPilote:string;
-    PrenomPilote:string;
+    nomPilote:string;
+    prenomPilote:string;
+    constructor()
+    {
+        super();
+        this.idPilote=0;
+        this.nomPilote="";
+        this.prenomPilote="";
+
+    }
 }

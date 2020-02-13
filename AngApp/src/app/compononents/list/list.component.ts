@@ -1,7 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Salarie } from 'src/app/models/salarie';
-import { SalarieService } from 'src/app/service/salarie.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-list',
@@ -10,11 +7,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ListComponent implements OnInit {
 
-  salaries;
-  constructor(private salarieservice:SalarieService, router:Router,route:ActivatedRoute) { }
+  @Input() models;
+  @Input() tabTitles;
+  @Input() modelsProps;
+  constructor() {
+    
+  }
 
   ngOnInit() {
-    this.salarieservice.getAllSalaries().subscribe(data=>{console.log(data);this.salaries=data});
+    console.log(this.modelsProps);
   }
 
 }
