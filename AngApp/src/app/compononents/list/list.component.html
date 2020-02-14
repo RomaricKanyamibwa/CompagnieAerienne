@@ -1,21 +1,24 @@
-<div class="card my-5">
-    <div class="card-body">
-      <table class="table table-bordered table-striped">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col"  *ngFor="let s of tabTitles">{{s}}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let s of models">
-            <td *ngFor="let p of modelsProps">{{s[p]}}</td>
-            <td> 
-              <a routerLink="edit/{{s[modelsProps[0]]}}" class="waves-effect waves-light btn #e65100 green" style="margin-right:5px;">Editer</a> 
-              <a routerLink="/delete/{{s[modelsProps[0]]}}" class="waves-effect waves-light btn red">  Supprimer</a>
-            </td>
-            
-          </tr>
-        </tbody>
-      </table>
+<div class="page-content p-5" id="content">
+
+    <div class="card my-5">
+        <div class="card-body">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col" *ngFor="let s of tabTitles">{{s}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let s of models">
+                        <td *ngFor="let p of modelsProps">{{s[p]}}</td>
+                        <td>
+                            <a routerLink="edit/{{s[modelsProps[0]]}}" class="waves-effect waves-light btn #e65100 green" style="margin-right:5px;">Editer</a>
+                            <a routerLink="/delete/{{s[modelsProps[0]]}}" class="waves-effect waves-light btn red"> Supprimer</a>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
+</div>

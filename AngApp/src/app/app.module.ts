@@ -12,6 +12,10 @@ import { AddComponent } from './compononents/add/add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PiloteComponent } from './compononents/pilote/pilote.component';
 import { Pilote } from './models/pilote';
+import { DeleteComponent } from './compononents/delete/delete.component';
+import { VerticalNavbarComponent } from './compononents/vertical-navbar/vertical-navbar.component';
+import { FooterComponent } from './compononents/footer/footer.component';
+import { HeaderComponent } from './compononents/header/header.component';
 
 // import { MaterializeModule } from 'angular-materialize';
 
@@ -24,7 +28,12 @@ const appRoutes : Routes= [
   {
     path: Pilote.name.toLowerCase()+"s",
     component : PiloteComponent
-  }
+  },
+  {
+    path:':model/delete/:id',
+    component:DeleteComponent
+  },
+  { path: '',redirectTo: Pilote.name.toLowerCase()+"s", pathMatch: 'full' },
 ]
 
 @NgModule({
@@ -33,7 +42,11 @@ const appRoutes : Routes= [
     SalarieComponent,
     ListComponent,
     AddComponent,
-    PiloteComponent
+    PiloteComponent,
+    DeleteComponent,
+    VerticalNavbarComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

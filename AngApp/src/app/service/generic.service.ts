@@ -11,13 +11,25 @@ export class GenericService<T>{
     headers: new HttpHeaders({'Content-Type':'application/json'})
   }
   pathModel;
+  modelName;
   h:T&Function;
   constructor(private http:HttpClient) {
    }
 
   setPath(className:String)
   {
+    this.modelName=className.toLowerCase();
     this.pathModel=AppSettings.APP_URL+"/"+className.toLowerCase()+"s/";
+  }
+
+  getPath()
+  {
+    return this.pathModel;
+  }
+
+  getModelName()
+  {
+    return this.modelName;
   }
 
   getAllModels()
