@@ -23,9 +23,11 @@ export class AeroportsComponent extends Generic<Aeroport> implements OnInit {
 
   ngOnInit() {
     this.getAllModels();
+    VerticalNavbarComponent.editor="list";
     this.tabTitles = ["IdAeroport", "Nom Aeroport", "Ville Deservie", "Action"];
     this.formTitles = { "IdAeroport": "idAeroport", "Nom Aeroport": "nomAeroport", "Ville Deservie": "nomVilleDesservie" };
     this.modelsProps = Object.keys(new Aeroport())
+    // console.log(this.formTitles,this.modelsProps);
     this.initForm();
   }
 
@@ -33,7 +35,8 @@ export class AeroportsComponent extends Generic<Aeroport> implements OnInit {
     this.form = this.formBuilder.group
       (
         {
-          nomAeroport: ['', [Validators.required, Validators.maxLength(3), Validators.pattern("[A-Z]{3}")]],
+          idAeroport: ['', [Validators.required, Validators.maxLength(3), Validators.pattern("[A-Z]{3}")]],
+          nomAeroport: ['', [Validators.required, Validators.maxLength(25), Validators.pattern(GlobalValues.letterPatern + "{3,25}")]],
           nomVilleDesservie: ['', [Validators.maxLength(50), Validators.pattern(GlobalValues.letterPatern + "{0,50}")]]
         }
       )
@@ -51,8 +54,8 @@ export class AeroportsComponent extends Generic<Aeroport> implements OnInit {
     this.formEdit = this.formBuilder.group
       (
         {
-          idAeroport: [this.model.idAeroport, [Validators.nullValidator]],
-          nomAeroport: [this.model.nomAeroport, [Validators.required, Validators.maxLength(3), Validators.pattern("[A-Z]{3}")]],
+          idAeroport: [this.model.idAeroport, [Validators.required, Validators.maxLength(3), Validators.pattern("[A-Z]{3}")]],
+          nomAeroport: [this.model.nomAeroport,[Validators.required, Validators.maxLength(25), Validators.pattern(GlobalValues.letterPatern + "{3,25}")]],
           nomVilleDesservie:[this.model.nomVilleDesservie,[Validators.maxLength(50),Validators.pattern(GlobalValues.letterPatern+"{0,50}")]]
         }
       )

@@ -23,7 +23,7 @@ export class EditComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("Pilote====>",this.model);
+    console.log(this.model);
   }
 
   update() {
@@ -40,5 +40,9 @@ export class EditComponent implements OnInit {
     this.added.emit(added);
     this.didadd = true;
   }
+
+  goBack(): void {
+    VerticalNavbarComponent.editor="list";
+    }
 
 }

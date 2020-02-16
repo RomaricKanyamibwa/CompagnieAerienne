@@ -27,6 +27,7 @@ export class PiloteComponent extends Generic<Pilote> implements OnInit {
     this.tabTitles = ["#", "Nom", "Prenom", "Action"];
     this.formTitles = { "Nom": "nomPilote", "Prenom": "prenomPilote" };
     this.modelsProps = Object.keys(new Pilote())
+    // console.log(this.formTitles,this.modelsProps);
     this.initForm();
   }
 

@@ -18,18 +18,10 @@ export class AddComponent implements OnInit {
   @Output() added = new EventEmitter<boolean>();
   didadd=false;
 
-  constructor(private router: Router) {
+  constructor() {
   }
 
   ngOnInit() {
-    //this.tabTitles.shift();
-    //this.tabTitles.pop();
-    //this.modelsProps.shift();
-    //this.tabTitles=this.tabTitles.sort();
-    // this.modelsProps = this.modelsProps.sort();
-
-    // console.log(this.model);
-    // console.log(new Map([this.modelsProps, this.formTitles]));
   }
 
   create() {

@@ -17,6 +17,8 @@ import { HeaderComponent } from './compononents/header/header.component';
 import { EditComponent } from './compononents/edit/edit.component';
 import { AeroportsComponent } from './compononents/aeroports/aeroports.component';
 import { Aeroport } from './models/aeroport';
+import { ConstructeursComponent } from './compononents/constructeurs/constructeurs.component';
+import { Constructeur } from './models/constructeur';
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 // import { MaterializeModule } from 'angular-materialize';
@@ -30,6 +32,10 @@ const appRoutes : Routes= [
   {
     path: Aeroport.name.toLowerCase()+"s",
     component : AeroportsComponent
+  },
+  {
+    path: Constructeur.name.toLowerCase()+"s",
+    component : ConstructeursComponent
   },
   // {
   //   path:Pilote.name.toLowerCase()+"s"+'/edit/:id',
@@ -48,7 +54,8 @@ const appRoutes : Routes= [
     FooterComponent,
     HeaderComponent,
     EditComponent,
-    AeroportsComponent
+    AeroportsComponent,
+    ConstructeursComponent
   ],
   imports: [
     BrowserModule,
