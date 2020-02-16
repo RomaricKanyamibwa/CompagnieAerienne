@@ -2,7 +2,7 @@
     <div class="card my-5">
         <div class="card-body">
 
-            <form class="col s12" [formGroup]="form" (ngSubmit)="create()">
+            <form class="col s12" [formGroup]="form" (ngSubmit)="update()">
                 <div class="form-group" *ngFor="let s of formTitles | keyvalue">
                     <input id="{{s.value}}" name="{{s.value}}" type="text" formControlName="{{s.value}}" placeholder="{{s.key}}" class="form-control">
                     <label for="{{s.value}}">{{s.key}}</label>

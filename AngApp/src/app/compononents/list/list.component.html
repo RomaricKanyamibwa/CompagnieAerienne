@@ -12,8 +12,8 @@
                     <tr *ngFor="let s of models">
                         <td *ngFor="let p of modelsProps">{{s[p]}}</td>
                         <td>
-                            <a routerLink="edit/{{s[modelsProps[0]]}}" class="waves-effect waves-light btn #e65100 green" style="margin-right:5px;">Editer</a>
-                            <a routerLink="/delete/{{s[modelsProps[0]]}}" class="waves-effect waves-light btn red"> Supprimer</a>
+                            <a (click)="update(s)" class="waves-effect waves-light btn #e65100 green" style="margin-right:5px;">Editer</a>
+                            <a (click)="deleteElement(s)" class="waves-effect waves-light btn red"> Supprimer</a>
                         </td>
 
                     </tr>

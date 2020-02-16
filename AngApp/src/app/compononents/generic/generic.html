@@ -7,10 +7,12 @@
 <!-- <h2>Liste pilotes</h2> -->
 <app-vertical-navbar [modelService]="modelService"></app-vertical-navbar>
 
-<app-list [models]="models" [tabTitles]="tabTitles" [modelsProps]="modelsProps" *ngIf="showListView"></app-list>
+<app-list [modelService]="modelService" [models]="models" [tabTitles]="tabTitles" [modelsProps]="modelsProps" *ngIf="showListView" (toUpdate)="toBeUpdated($event)"></app-list>
 
 
-<app-add [modelService]="modelService" [formTitles]="formTitles" [modelsProps]="modelsProps" [form]="form" *ngIf="showAddView"></app-add>
+<app-add [modelService]="modelService" [formTitles]="formTitles" [form]="form" *ngIf="showAddView" (added)="onAdded($event)"></app-add>
+
+<app-edit [modelService]="modelService" [model]="model" [formTitles]="formTitles" [form]="formEdit" *ngIf="showEditView" (added)="onAdded($event)"></app-edit>
 
 <app-footer></app-footer>
 
