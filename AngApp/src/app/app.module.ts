@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 
 // import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,12 +21,18 @@ import { ConstructeursComponent } from './compononents/constructeurs/constructeu
 import { Constructeur } from './models/constructeur';
 import { TypeComponent } from './compononents/type/type.component';
 import { TypeAvion } from './models/typeAvion';
+import { HomeComponent } from './compononents/home/home.component';
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 // import { MaterializeModule } from 'angular-materialize';
 
 
 const appRoutes : Routes= [
+  {
+    path:'',
+    component:HomeComponent
+
+  },
   {
     path: Pilote.name.toLowerCase()+"s",
     component : PiloteComponent
@@ -62,7 +68,8 @@ const appRoutes : Routes= [
     EditComponent,
     AeroportsComponent,
     ConstructeursComponent,
-    TypeComponent
+    TypeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
