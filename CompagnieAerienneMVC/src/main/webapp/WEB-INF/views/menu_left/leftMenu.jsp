@@ -7,7 +7,7 @@
 	<!-- Sidebar - Brand -->
 	<a
 		class="sidebar-brand d-flex align-items-center justify-content-center"
-		href="index.html">
+		href="/mvc">
 		<div class="sidebar-brand-icon rotate-n-15">
 			<i class="fas fa-plane-departure"></i>
 		</div>
